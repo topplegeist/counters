@@ -1,0 +1,12 @@
+:host {
+  position: relative;
+  width: 100%;
+}
+
+:host.closed {
+  min-height: 2px;
+}
+
+:host.opened {
+  min-height: 50px;
+}
