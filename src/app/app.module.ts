@@ -6,10 +6,12 @@ import {MainViewComponent} from "./components/main-view/main-view.component";
 import {PlayerFieldComponent} from "./components/player-field/player-field.component";
 import {LifeService} from "./service/life.service";
 import {LifeCounterComponent} from "./components/life-counter/life-counter.component";
+import {SplashscreenComponent} from "./components/splashscreen/splashscreen.component";
 
 @NgModule({
   declarations: [
     AppComponent,
+    SplashscreenComponent,
     MainViewComponent,
     PlayerFieldComponent,
     LifeCounterComponent

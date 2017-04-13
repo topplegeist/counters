@@ -7,7 +7,7 @@ import {PlayerStats} from "../models/player-stats";
 
 @Injectable()
 export class LifeService {
-  private playersStats: PlayerStats[];
+  public playersStats: PlayerStats[];
 
   constructor() {
     this.playersStats = [new PlayerStats(), new PlayerStats()];

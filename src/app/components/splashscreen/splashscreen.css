@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  mask-image: url('../../../assets/logo.svg');
+  mask-size: 100% auto ;
+  mask-repeat: no-repeat;
+  mask-position: 50% 50%;
+}
