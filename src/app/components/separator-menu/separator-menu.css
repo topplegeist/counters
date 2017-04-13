@@ -1,6 +1,7 @@
 :host {
   position: relative;
   width: 100%;
+  background-color: white;
 }
 
 :host.closed {
@@ -8,5 +9,5 @@
 }
 
 :host.opened {
-  min-height: 50px;
+  min-height: 80px;
 }

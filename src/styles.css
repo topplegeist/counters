@@ -1,4 +1,16 @@
+@font-face {
+  font-family: Beleren;
+  src: url('assets/JaceBeleren-Bold.ttf');
+}
+
+@font-face {
+  font-family: Mplantin;
+  src: url('assets/Mplantin.ttf');
+}
+
 html {
+  background-color: white;
+  font-family: Beleren;
   height: 100%;
 }
 

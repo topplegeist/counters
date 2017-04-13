@@ -13,4 +13,5 @@ div.life.container {
 
 div.life.left, div.life.right {
   flex: 1;
+  z-index: 50;
 }
