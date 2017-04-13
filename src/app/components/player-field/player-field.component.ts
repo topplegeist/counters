@@ -10,7 +10,7 @@ import {Component, Input} from "@angular/core";
 })
 export class PlayerFieldComponent {
   @Input()
-  public inverted: boolean;
+  public inverted: boolean = false;
 
   @Input()
   public playerIndex: number = 0;
