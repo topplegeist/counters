@@ -7,6 +7,7 @@ import {PlayerFieldComponent} from "./components/player-field/player-field.compo
 import {LifeService} from "./service/life.service";
 import {LifeCounterComponent} from "./components/life-counter/life-counter.component";
 import {SplashscreenComponent} from "./components/splashscreen/splashscreen.component";
+import {HudInteractionLayerComponent} from "./components/hud-interaction-layer/hud-interaction-layer.component";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {SplashscreenComponent} from "./components/splashscreen/splashscreen.comp
     SplashscreenComponent,
     MainViewComponent,
     PlayerFieldComponent,
-    LifeCounterComponent
+    LifeCounterComponent,
+    HudInteractionLayerComponent
   ],
   imports: [
     BrowserModule

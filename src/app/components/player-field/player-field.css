@@ -9,6 +9,7 @@ div.container {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 div.container.inverted {
