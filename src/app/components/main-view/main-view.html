@@ -1,4 +1,5 @@
 <div class="container">
   <player-field [inverted]="true" [playerIndex]="1"></player-field>
+  <separator-menu [ngClass]="{opened: separatorMenuOpened, closed: !separatorMenuOpened}"></separator-menu>
   <player-field [playerIndex]="0"></player-field>
 </div>
