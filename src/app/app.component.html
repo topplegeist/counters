@@ -1,2 +1,2 @@
-<!--main-view></main-view-->
-<splashscreen></splashscreen>
+<splashscreen *ngIf="splashscreenActive"></splashscreen>
+<main-view *ngIf="!splashscreenActive"></main-view>
