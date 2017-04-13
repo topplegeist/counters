@@ -2,7 +2,7 @@
  * Created by Soulbound Team on 13/04/2017.
  */
 
-import {BrowserModule} from "@angular/platform-browser";
+import {BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {MainViewComponent} from "./components/main-view/main-view.component";
@@ -15,7 +15,13 @@ import {SeparatorMenuComponent} from "./components/separator-menu/separator-menu
 import {SeparatorInnerMenuComponent} from "./components/separator-inner-menu/separator-inner-menu.component";
 import {SeparatorMenuButtonComponent} from "./components/separator-menu-button/separator-menu-button.component";
 import {SeparatorMenuService} from "./service/separator-menu.service";
+import {BackgroundSliderComponent} from "./components/background-slider/background-slider.component";
 
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any>{
+    'swipe': {velocity: 0.4, threshold: 20} // override default settings
+  }
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,15 +32,19 @@ import {SeparatorMenuService} from "./service/separator-menu.service";
     HudInteractionLayerComponent,
     SeparatorMenuComponent,
     SeparatorInnerMenuComponent,
-    SeparatorMenuButtonComponent
+    SeparatorMenuButtonComponent,
+    BackgroundSliderComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [
     LifeService,
-    SeparatorMenuService
-  ],
+    SeparatorMenuService,
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
