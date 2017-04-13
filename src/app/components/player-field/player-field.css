@@ -1,9 +1,17 @@
 :host {
   flex: 1;
   align-self: stretch;
+  background-color: #4B946A;
 }
 
-:host > div.inverted {
+div.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.container.inverted {
   transform: rotate(180deg);
 }
 
