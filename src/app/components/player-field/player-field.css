@@ -3,7 +3,7 @@
   align-self: stretch;
 }
 
-.inverted {
-
+:host > div.inverted {
+  transform: rotate(180deg);
 }
 

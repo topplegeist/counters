@@ -1,4 +1,4 @@
-:host > div{
+:host > div {
   height: 100%;
   display: flex;
   flex-direction: column;
