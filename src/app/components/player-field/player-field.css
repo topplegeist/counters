@@ -1,7 +1,10 @@
 :host {
   flex: 1;
   align-self: stretch;
-  background-color: darkred;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0.75) 75%, rgba(0, 0, 0, 0.90) 90%,black 100%),
+              url('../../../assets/background-images/mountain.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   max-height: 100%;
   display: flex;
   align-items: stretch;
@@ -18,5 +21,9 @@ div.container {
 
 div.container.inverted {
   transform: rotate(180deg);
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0.75) 75%, rgba(0, 0, 0, 0.90) 90%,black 100%),
+              url('../../../assets/background-images/plains.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 

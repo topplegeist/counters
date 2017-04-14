@@ -1,4 +1,5 @@
 div.container {
   color: white;
   font-size: 39vw;
+  text-shadow: 2px 2px 4px darkgoldenrod;
 }

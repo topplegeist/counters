@@ -61,7 +61,7 @@ export class BackgroundSliderComponent implements OnInit {
     this.showPane(--this.currentPane);
   }
 
-  private handleHammer(e) {
+  public handleHammer(e) {
     switch (e.type) {
       case 'panleft':
       case 'panright':
