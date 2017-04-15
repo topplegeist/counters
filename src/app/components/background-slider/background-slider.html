@@ -1,16 +1,21 @@
 <div class='carousel' #carousel>
-  <ul class='pane-container' #container>
-    <li class='pane' (panleft)="handleHammer($event)" (panright)="handleHammer($event)" (panend)="handleHammer($event)" (pancancel)="handleHammer($event)">
-      <div class='vertical-center'>1</div>
+  <ul class='pane-container' #container
+      (panleft)="mouseDragged($event.deltaX)"
+      (panright)="mouseDragged($event.deltaX)"
+      (panend)="mouseDropped($event.deltaX)"
+      (pancancel)="mouseDropped($event.deltaX)"
+  >
+    <li class='pane' #panel1>
+      <div>1</div>
     </li>
-    <li class='pane' (panleft)="handleHammer($event)" (panright)="handleHammer($event)" (panend)="handleHammer($event)" (pancancel)="handleHammer($event)">
-      <div class='vertical-center'>2</div>
+    <li class='pane' #panel2>
+      <div>2</div>
     </li>
-    <li class='pane' (panleft)="handleHammer($event)" (panright)="handleHammer($event)" (panend)="handleHammer($event)" (pancancel)="handleHammer($event)">
-      <div class='vertical-center'>3</div>
+    <li class='pane' #panel3>
+      <div>3</div>
     </li>
-    <li class='pane' (panleft)="handleHammer($event)" (panright)="handleHammer($event)" (panend)="handleHammer($event)" (pancancel)="handleHammer($event)">
-      <div class='vertical-center'>4</div>
+    <li class='pane' #panel4>
+      <div>4</div>
     </li>
   </ul>
 </div>
