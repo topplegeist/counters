@@ -1,6 +1,7 @@
 /**
  * Created by Soulbound Team on 13/04/17.
  */
+
 import {Component} from "@angular/core";
 import {SeparatorMenuService} from "../../service/separator-menu.service";
 

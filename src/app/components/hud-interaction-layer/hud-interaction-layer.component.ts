@@ -1,8 +1,9 @@
-import {Component, Input} from "@angular/core";
-import {LifeService} from "../../service/life.service";
 /**
  * Created by Soulbound Team on 13/04/2017.
  */
+
+import {Component, Input} from "@angular/core";
+import {LifeService} from "../../service/life.service";
 
 @Component({
   selector: 'hud-interaction-layer',
@@ -16,11 +17,11 @@ export class HudInteractionLayerComponent {
   constructor(private lifeService: LifeService) {
   }
 
-  public leftClick(){
+  public leftClick() {
     this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life - 1;
   }
 
-  public rightClick(){
+  public rightClick() {
     this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life + 1;
   }
 }

@@ -6,7 +6,7 @@
 
 :host.closed {
   min-height: 4px;
-  background: radial-gradient(ellipse at center, darkgoldenrod -20%,black 80%);
+  background: radial-gradient(ellipse at center, darkgoldenrod -20%, black 80%);
 }
 
 :host.opened {

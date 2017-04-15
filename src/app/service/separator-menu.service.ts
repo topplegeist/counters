@@ -12,6 +12,7 @@ export class SeparatorMenuService {
   get state(): boolean {
     return this._state;
   }
+
   set state(value: boolean) {
     this._state = value;
     this.menuStateChanged.next(this._state);

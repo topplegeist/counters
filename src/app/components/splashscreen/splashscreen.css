@@ -12,7 +12,7 @@
   height: 50%;
   background-color: white;
   mask-image: url('../../../assets/logo.svg');
-  mask-size: 100% auto ;
+  mask-size: 100% auto;
   mask-repeat: no-repeat;
   mask-position: 50% 50%;
 }

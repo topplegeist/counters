@@ -10,5 +10,4 @@ import {Component} from "@angular/core";
   styleUrls: ['separator-inner-menu.css']
 })
 export class SeparatorInnerMenuComponent {
-
 }
