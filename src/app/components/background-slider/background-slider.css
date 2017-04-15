@@ -1,47 +1,58 @@
+:host {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 .carousel {
   height: 100%;
   width: 100%;
   background-color: #000;
   overflow: hidden;
-  position: relative;
 }
 
-.pane-container {
+.panel-container {
   height: 100%;
   list-style: none;
-  background-color: #ddd;
   margin: 0;
   padding: 0;
   position: relative;
 }
 
-.pane-container.transition {
+.panel-container.transition {
   transition: left .4s ease-in-out;
 }
 
-.pane {
+li.panel {
   float: left;
   height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.pane div {
-  text-align: center;
-  font-size: 3em;
-  color: #fff;
+.carousel li.panel.plains {
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0.75) 80%, rgba(0, 0, 0, 0.90) 95%, black 100%),
+  url('../../../assets/background-images/plains.png');
 }
 
-.carousel li.pane:nth-child(1) {
-  background: #42d692;
+.carousel li.panel.island {
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0.75) 75%, rgba(0, 0, 0, 0.90) 90%, black 100%),
+  url('../../../assets/background-images/island.png');
 }
 
-.carousel li.pane:nth-child(2) {
-  background: #4986e7;
+.carousel li.panel.forest {
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0.75) 75%, rgba(0, 0, 0, 0.90) 90%, black 100%),
+  url('../../../assets/background-images/forest.png');
 }
 
-.carousel li.pane:nth-child(3) {
-  background: #d06b64;
+.carousel li.panel.mountain {
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0.75) 75%, rgba(0, 0, 0, 0.90) 90%, black 100%),
+  url('../../../assets/background-images/mountain.png');
 }
 
-.carousel li.pane:nth-child(4) {
-  background: #42d692;
+.carousel li.panel.swamp {
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0.75) 75%, rgba(0, 0, 0, 0.90) 90%, black 100%),
+  url('../../../assets/background-images/swamp.png');
 }

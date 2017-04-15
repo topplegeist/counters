@@ -20,11 +20,12 @@ export class BackgroundSliderComponent extends HummerSliderComponent implements 
 
   public panels: ElementRef[];
 
-  @ViewChildren("panel1,panel2,panel3,panel4")
+  @ViewChildren("panel1,panel2,panel3,panel4,panel5")
   protected panelsQueryList: QueryList<ElementRef>;
 
   public ngAfterViewInit(): void {
     this.panels = this.panelsQueryList.toArray();
+    console.log(this.panels.length);
     this.init(0);
   }
 }

@@ -1,21 +1,14 @@
 <div class='carousel' #carousel>
-  <ul class='pane-container' #container
+  <ul class='panel-container' #container
       (panleft)="mouseDragged($event.deltaX)"
       (panright)="mouseDragged($event.deltaX)"
       (panend)="mouseDropped($event.deltaX)"
       (pancancel)="mouseDropped($event.deltaX)"
   >
-    <li class='pane' #panel1>
-      <div>1</div>
-    </li>
-    <li class='pane' #panel2>
-      <div>2</div>
-    </li>
-    <li class='pane' #panel3>
-      <div>3</div>
-    </li>
-    <li class='pane' #panel4>
-      <div>4</div>
-    </li>
+    <li class='panel plains' #panel1></li>
+    <li class='panel island' #panel2></li>
+    <li class='panel forest' #panel3></li>
+    <li class='panel mountain' #panel4></li>
+    <li class='panel swamp' #panel5></li>
   </ul>
 </div>

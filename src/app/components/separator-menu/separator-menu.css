@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   background: black;
+  z-index: 200;
 }
 
 :host.closed {
