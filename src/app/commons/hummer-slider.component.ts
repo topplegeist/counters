@@ -13,6 +13,7 @@ export abstract class HummerSliderComponent {
   abstract carousel: ElementRef;
   abstract slidingContainer: ElementRef;
   abstract panels: ElementRef[];
+  abstract reversed: boolean;
 
   protected panBoundary: number = .25;
 
@@ -37,11 +38,15 @@ export abstract class HummerSliderComponent {
   }
 
   public mouseDragged(deltaX: number) {
+    if (this.reversed)
+      deltaX = -deltaX;
     deltaX = this.slowDownScroll(deltaX);
     this.setContainerOffsetX(-this.currentPane * this.panelWidth + deltaX);
   }
 
   public mouseDropped(deltaX: number) {
+    if (this.reversed)
+      deltaX = -deltaX;
     if (Math.abs(deltaX) > this.panelWidth * this.panBoundary) {
       if (deltaX > 0)
         this.prev();
@@ -67,7 +72,13 @@ export abstract class HummerSliderComponent {
 
   private outOfBound(): boolean {
     let left: number = $(this.slidingContainer.nativeElement).position().left;
+    let rightMargin: number = -this.panelWidth * (this.panels.length - 1);
+
+    if (this.reversed) {
+      left = $(this.carousel.nativeElement).width() - left;
+      rightMargin = -rightMargin;
+    }
     return (this.currentPane == 0 && left >= 0) ||
-      (this.currentPane == this.panels.length - 1 && left <= -this.panelWidth * (this.panels.length - 1));
+      (this.currentPane == this.panels.length - 1 && left <= rightMargin);
   }
 }

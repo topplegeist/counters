@@ -2,7 +2,7 @@
  * Created by Soulbound Team on 13/04/2017.
  */
 
-import {AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren} from "@angular/core";
+import {AfterViewInit, Component, ElementRef, Input, QueryList, ViewChild, ViewChildren} from "@angular/core";
 import {HummerSliderComponent} from "../../commons/hummer-slider.component";
 
 @Component({
@@ -20,12 +20,14 @@ export class BackgroundSliderComponent extends HummerSliderComponent implements 
 
   public panels: ElementRef[];
 
+  @Input()
+  public reversed: boolean;
+
   @ViewChildren("panel1,panel2,panel3,panel4,panel5")
   protected panelsQueryList: QueryList<ElementRef>;
 
   public ngAfterViewInit(): void {
     this.panels = this.panelsQueryList.toArray();
-    console.log(this.panels.length);
     this.init(0);
   }
 }
