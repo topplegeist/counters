@@ -2,18 +2,22 @@
  * Created by Soulbound Team on 13/04/2017.
  */
 
-import {ElementRef} from "@angular/core";
+import {ElementRef, EventEmitter} from "@angular/core";
 import * as $ from "jquery";
 import "hammerjs";
 
 export abstract class HummerSliderComponent {
   private panelWidth: number;
-  private currentPane: number = 0;
+  private currentPanel: number = 0;
 
   abstract carousel: ElementRef;
   abstract slidingContainer: ElementRef;
   abstract panels: ElementRef[];
   abstract reversed: boolean;
+
+  private _internalOffset: number = 0;
+  public offsetSlided: EventEmitter<number> = new EventEmitter();
+  public offsetSet: EventEmitter<number> = new EventEmitter();
 
   protected panBoundary: number = .25;
 
@@ -25,23 +29,26 @@ export abstract class HummerSliderComponent {
   }
 
   private slideToPanel(index: number) {
-    this.currentPane = Math.max(0, Math.min(index, this.panels.length - 1));
-    this.setContainerOffsetX(-this.currentPane * this.panelWidth);
+    this.currentPanel = Math.max(0, Math.min(index, this.panels.length - 1));
+    if (this._internalOffset != -this.currentPanel * this.panelWidth) {
+      this.setContainerOffsetX(-this.currentPanel * this.panelWidth);
+    }
   }
 
   private next() {
-    this.slideToPanel(++this.currentPane);
+    this.slideToPanel(++this.currentPanel);
   }
 
   private prev() {
-    this.slideToPanel(--this.currentPane);
+    this.slideToPanel(--this.currentPanel);
   }
 
   public mouseDragged(deltaX: number) {
     if (this.reversed)
       deltaX = -deltaX;
     deltaX = this.slowDownScroll(deltaX);
-    this.setContainerOffsetX(-this.currentPane * this.panelWidth + deltaX);
+    this.setContainerOffsetX(-this.currentPanel * this.panelWidth + deltaX);
+    this.offsetSlided.next(this._internalOffset);
   }
 
   public mouseDropped(deltaX: number) {
@@ -54,31 +61,31 @@ export abstract class HummerSliderComponent {
         this.next();
     } else
       this.resetPosition();
+    this.offsetSet.next(this._internalOffset);
   }
 
   private slowDownScroll(deltaX: number): number {
     if (this.outOfBound())
-      deltaX *= .2;
+      deltaX *= .15;
     return deltaX;
   }
 
   private resetPosition() {
-    this.slideToPanel(this.currentPane);
+    this.slideToPanel(this.currentPanel);
   }
 
   private setContainerOffsetX(offsetX: number) {
-    this.slidingContainer.nativeElement.style.left = offsetX + "px";
+    this._internalOffset = offsetX;
   }
 
   private outOfBound(): boolean {
-    let left: number = $(this.slidingContainer.nativeElement).position().left;
     let rightMargin: number = -this.panelWidth * (this.panels.length - 1);
 
     if (this.reversed) {
-      left = $(this.carousel.nativeElement).width() - left;
+      this._internalOffset = $(this.carousel.nativeElement).width() - this._internalOffset;
       rightMargin = -rightMargin;
     }
-    return (this.currentPane == 0 && left >= 0) ||
-      (this.currentPane == this.panels.length - 1 && left <= rightMargin);
+    return (this.currentPanel == 0 && this._internalOffset >= 0) ||
+      (this.currentPanel == this.panels.length - 1 && this._internalOffset <= rightMargin);
   }
 }

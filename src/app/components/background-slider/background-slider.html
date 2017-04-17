@@ -1,9 +1,12 @@
 <div class='carousel' #carousel>
-  <ul class='panel-container' #container
+  <ul #container
+      [ngClass]="{'panel-container': true, 'transition': transition}"
+      [style.left]="getLeft()"
       (panleft)="mouseDragged($event.deltaX)"
       (panright)="mouseDragged($event.deltaX)"
       (panend)="mouseDropped($event.deltaX)"
       (pancancel)="mouseDropped($event.deltaX)"
+      (transitionend)="transitionDone()"
   >
     <li class='panel plains' #panel1></li>
     <li class='panel island' #panel2></li>

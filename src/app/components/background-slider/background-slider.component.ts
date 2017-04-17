@@ -9,7 +9,7 @@ import {HummerSliderComponent} from "../../commons/hummer-slider.component";
   selector: 'background-slider',
   templateUrl: 'background-slider.html',
   styleUrls: ['background-slider.css']
-  //TODO: Animations
+  //TODO: waiting for angular2 variables animations
 })
 export class BackgroundSliderComponent extends HummerSliderComponent implements AfterViewInit {
   @ViewChild("container")
@@ -23,11 +23,28 @@ export class BackgroundSliderComponent extends HummerSliderComponent implements 
   @Input()
   public reversed: boolean;
 
+  public offset: number = 0;
+
   @ViewChildren("panel1,panel2,panel3,panel4,panel5")
   protected panelsQueryList: QueryList<ElementRef>;
+
+  public transition: boolean = false;
 
   public ngAfterViewInit(): void {
     this.panels = this.panelsQueryList.toArray();
     this.init(0);
+    this.offsetSlided.subscribe((value: number) => this.offset = value);
+    this.offsetSet.subscribe((value: number) => {
+      this.transition = true;
+      this.offset = value;
+    });
+  }
+
+  public transitionDone() {
+    this.transition = false;
+  }
+
+  public getLeft(): string {
+    return this.offset + 'px';
   }
 }
