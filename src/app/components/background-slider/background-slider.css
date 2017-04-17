@@ -30,6 +30,7 @@ li.panel {
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .carousel li.panel.plains {
