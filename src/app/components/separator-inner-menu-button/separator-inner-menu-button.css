@@ -1,0 +1,34 @@
+:host {
+  margin: 2px;
+  flex-grow: 1;
+  height: 100%;
+}
+
+p {
+  text-align: center;
+}
+
+p > span.icon {
+  background-color: white;
+  mask-size: auto 100%;
+  mask-repeat: no-repeat;
+  mask-position: 50% 50%;
+  min-height: 32px;
+  display: block;
+}
+
+p > span.icon.reset {
+  mask-image: url('../../../assets/icon-reset.svg');
+}
+
+p > span.icon.dices {
+  mask-image: url('../../../assets/icon-dices.svg');
+}
+
+p > span.icon.lifeRange {
+  mask-image: url('../../../assets/icon-life-range.svg');
+}
+
+p > span.icon.settings {
+  mask-image: url('../../../assets/icon-settings.svg');
+}

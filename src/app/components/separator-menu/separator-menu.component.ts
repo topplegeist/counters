@@ -3,6 +3,7 @@
  */
 
 import {Component} from "@angular/core";
+import {SeparatorMenuService} from "../../service/separator-menu.service";
 
 @Component({
   selector: 'separator-menu',
@@ -10,4 +11,6 @@ import {Component} from "@angular/core";
   styleUrls: ['separator-menu.css'],
 })
 export class SeparatorMenuComponent {
+  constructor(public separatorMenuService: SeparatorMenuService) {
+  }
 }
