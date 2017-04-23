@@ -12,7 +12,7 @@ import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
   styleUrls: ['main-view.css']
 })
 export class MainViewComponent {
-  private separatorMenuOpened: boolean;
+  public separatorMenuOpened: boolean;
 
   constructor(separatorMenuService: SeparatorMenuService) {
     separatorMenuService.menuStateChanged.subscribe((state: SeparatorMenuState) => {
