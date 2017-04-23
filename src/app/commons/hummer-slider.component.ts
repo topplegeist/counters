@@ -81,10 +81,9 @@ export abstract class HummerSliderComponent {
   private outOfBound(): boolean {
     let rightMargin: number = -this.panelWidth * (this.panels.length - 1);
 
-    if (this.reversed) {
-      this._internalOffset = $(this.carousel.nativeElement).width() - this._internalOffset;
-      rightMargin = -rightMargin;
-    }
+    if (this.reversed)
+      this._internalOffset = -$(this.carousel.nativeElement).width() + this.panelWidth + this._internalOffset;
+
     return (this.currentPanel == 0 && this._internalOffset >= 0) ||
       (this.currentPanel == this.panels.length - 1 && this._internalOffset <= rightMargin);
   }
