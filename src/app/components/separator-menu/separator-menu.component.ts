@@ -4,6 +4,7 @@
 
 import {Component} from "@angular/core";
 import {SeparatorMenuService} from "../../service/separator-menu.service";
+import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
 
 @Component({
   selector: 'separator-menu',
@@ -11,6 +12,8 @@ import {SeparatorMenuService} from "../../service/separator-menu.service";
   styleUrls: ['separator-menu.css'],
 })
 export class SeparatorMenuComponent {
+  public separatorMenuState = SeparatorMenuState;
+
   constructor(public separatorMenuService: SeparatorMenuService) {
   }
 }

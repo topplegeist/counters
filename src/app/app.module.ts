@@ -17,6 +17,7 @@ import {SeparatorMenuButtonComponent} from "./components/separator-menu-button/s
 import {SeparatorMenuService} from "./service/separator-menu.service";
 import {BackgroundSliderComponent} from "./components/background-slider/background-slider.component";
 import {SeparatorInnerMenuButtonComponent} from "./components/separator-inner-menu-button/separator-inner-menu-button.component";
+import {SeparatorLifeRangeMenuComponent} from "./components/separator-life-range-menu/separator-life-range-menu.component";
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -35,6 +36,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     SeparatorInnerMenuComponent,
     SeparatorInnerMenuButtonComponent,
     SeparatorMenuButtonComponent,
+    SeparatorLifeRangeMenuComponent,
     BackgroundSliderComponent
   ],
   imports: [

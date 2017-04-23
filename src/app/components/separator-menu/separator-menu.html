@@ -1,2 +1,4 @@
-<separator-inner-menu *ngIf="separatorMenuService.state == true"></separator-inner-menu>
+<separator-inner-menu *ngIf="separatorMenuService.state == separatorMenuState.MAIN_MENU"></separator-inner-menu>
+<separator-life-range-menu
+  *ngIf="separatorMenuService.state == separatorMenuState.LIFE_RANGE"></separator-life-range-menu>
 <separator-menu-button></separator-menu-button>

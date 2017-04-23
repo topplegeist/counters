@@ -4,6 +4,7 @@
 
 import {Component} from "@angular/core";
 import {SeparatorMenuService} from "../../service/separator-menu.service";
+import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
 
 @Component({
   selector: 'main-view',
@@ -11,11 +12,11 @@ import {SeparatorMenuService} from "../../service/separator-menu.service";
   styleUrls: ['main-view.css']
 })
 export class MainViewComponent {
-  public separatorMenuOpened: boolean = false;
+  private separatorMenuOpened: boolean;
 
   constructor(separatorMenuService: SeparatorMenuService) {
-    separatorMenuService.menuStateChanged.subscribe((state: boolean) => {
-      this.separatorMenuOpened = state;
+    separatorMenuService.menuStateChanged.subscribe((state: SeparatorMenuState) => {
+      this.separatorMenuOpened = state != SeparatorMenuState.CLOSED;
     })
   }
 }

@@ -3,7 +3,7 @@
  */
 
 import {Component} from "@angular/core";
-import {SeparatorMenuInnerButtonType} from "../separator-inner-menu-button/separator-menu-inner-button-type.enum";
+import {SeparatorMenuInnerButtonType} from "../../enums/separator-menu-inner-button-type.enum";
 
 @Component({
   selector: 'separator-inner-menu',

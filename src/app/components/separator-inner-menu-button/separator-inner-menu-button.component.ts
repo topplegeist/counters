@@ -4,7 +4,8 @@
 
 import {Component, Input, OnInit} from "@angular/core";
 import {SeparatorMenuService} from "../../service/separator-menu.service";
-import {SeparatorMenuInnerButtonType} from "./separator-menu-inner-button-type.enum";
+import {SeparatorMenuInnerButtonType} from "../../enums/separator-menu-inner-button-type.enum";
+import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
 
 @Component({
   selector: 'separator-inner-menu-button',
@@ -29,9 +30,11 @@ export class SeparatorInnerMenuButtonComponent implements OnInit {
   public doButtonAction() {
     switch (this.iconType) {
       case SeparatorMenuInnerButtonType.dices:
-      case SeparatorMenuInnerButtonType.lifeRange:
       case SeparatorMenuInnerButtonType.settings:
         // TODO:
+        break;
+      case SeparatorMenuInnerButtonType.lifeRange:
+        this.separatorMenuService.state = SeparatorMenuState.LIFE_RANGE;
         break;
       case SeparatorMenuInnerButtonType.reset:
         this.separatorMenuService.resetLives();

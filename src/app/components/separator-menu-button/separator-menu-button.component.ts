@@ -4,6 +4,7 @@
 
 import {Component} from "@angular/core";
 import {SeparatorMenuService} from "../../service/separator-menu.service";
+import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
 
 @Component({
   selector: 'separator-menu-button',
@@ -15,6 +16,9 @@ export class SeparatorMenuButtonComponent {
   }
 
   public toggleMenu() {
-    this.separatorMenuService.state = !this.separatorMenuService.state
+    if (this.separatorMenuService.state == SeparatorMenuState.CLOSED)
+      this.separatorMenuService.state = SeparatorMenuState.MAIN_MENU;
+    else
+      this.separatorMenuService.state = SeparatorMenuState.CLOSED;
   }
 }
