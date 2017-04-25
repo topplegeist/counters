@@ -1,3 +1,4 @@
+<dices-view *ngIf="diceService.active"></dices-view>
 <div class="container">
   <player-field [inverted]="true" [playerIndex]="1"></player-field>
   <separator-menu [ngClass]="{opened: separatorMenuOpened, closed: !separatorMenuOpened}"></separator-menu>

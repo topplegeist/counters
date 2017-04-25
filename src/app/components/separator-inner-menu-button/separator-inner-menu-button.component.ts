@@ -16,7 +16,7 @@ export class SeparatorInnerMenuButtonComponent implements OnInit {
   @Input()
   public iconType: SeparatorMenuInnerButtonType;
 
-  public classObj: any;
+  public classObj: any = {};
 
   constructor(private separatorMenuService: SeparatorMenuService) {
   }
@@ -29,9 +29,11 @@ export class SeparatorInnerMenuButtonComponent implements OnInit {
 
   public doButtonAction() {
     switch (this.iconType) {
-      case SeparatorMenuInnerButtonType.dices:
       case SeparatorMenuInnerButtonType.settings:
         // TODO:
+        break;
+      case SeparatorMenuInnerButtonType.dices:
+        this.separatorMenuService.activateDices();
         break;
       case SeparatorMenuInnerButtonType.lifeRange:
         this.separatorMenuService.state = SeparatorMenuState.LIFE_RANGE;

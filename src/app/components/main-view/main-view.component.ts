@@ -5,6 +5,7 @@
 import {Component} from "@angular/core";
 import {SeparatorMenuService} from "../../service/separator-menu.service";
 import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
+import {DiceService} from "../../service/dice.service";
 
 @Component({
   selector: 'main-view',
@@ -14,7 +15,8 @@ import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
 export class MainViewComponent {
   public separatorMenuOpened: boolean;
 
-  constructor(separatorMenuService: SeparatorMenuService) {
+  constructor(separatorMenuService: SeparatorMenuService,
+              public diceService: DiceService) {
     separatorMenuService.menuStateChanged.subscribe((state: SeparatorMenuState) => {
       this.separatorMenuOpened = state != SeparatorMenuState.CLOSED;
     })

@@ -3,6 +3,7 @@
  */
 
 import {Component, Input} from "@angular/core";
+import {DiceService} from "../../service/dice.service";
 
 @Component({
   selector: 'player-field',
@@ -15,4 +16,8 @@ export class PlayerFieldComponent {
 
   @Input()
   public playerIndex: number = 0;
+
+
+  constructor(public diceService: DiceService) {
+  }
 }

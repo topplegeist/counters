@@ -7,6 +7,7 @@ import {LifeService} from "./life.service";
 import {PlayerStats} from "../models/player-stats";
 import {SeparatorMenuState} from "../enums/separator-menu-state.enum";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {DiceService} from "app/service/dice.service";
 
 @Injectable()
 export class SeparatorMenuService {
@@ -15,7 +16,8 @@ export class SeparatorMenuService {
 
   public menuStateChanged: BehaviorSubject<SeparatorMenuState> = new BehaviorSubject(this._state);
 
-  constructor(private lifeService: LifeService) {
+  constructor(private lifeService: LifeService,
+              private diceService: DiceService) {
   }
 
   get state(): SeparatorMenuState {
@@ -35,6 +37,11 @@ export class SeparatorMenuService {
       })
   }
 
+  public activateDices() {
+    this.state = SeparatorMenuState.CLOSED;
+    this.diceService.launchDices();
+  }
+
   get lifeRange(): number {
     return this._lifeRange;
   }
@@ -42,4 +49,6 @@ export class SeparatorMenuService {
   set lifeRange(value: number) {
     this._lifeRange = value;
   }
+
+
 }

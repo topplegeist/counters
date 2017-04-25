@@ -1,5 +1,5 @@
 <div [ngClass]="{'inverted': inverted, 'container': true}">
   <background-slider [reversed]="inverted"></background-slider>
-  <life-counter [playerIndex]="playerIndex"></life-counter>
+  <life-counter *ngIf="!diceService.active" [playerIndex]="playerIndex"></life-counter>
   <hud-interaction-layer [playerIndex]="playerIndex"></hud-interaction-layer>
 </div>
