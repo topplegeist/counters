@@ -1,0 +1,82 @@
+img.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 400;
+  filter: blur(5px) grayscale(40%);
+}
+
+.message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 400;
+  flex-direction: column;
+}
+
+.message > .container {
+  position: relative;
+  width: 90%;
+  padding: 4px;
+}
+.message > .container:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url('../../../assets/marble.jpg') 50%;
+  filter: brightness(20%);
+  z-index: -1;
+  border-radius: 5px;
+}
+
+.message div.outer-box {
+  background: url('../../../assets/marble.jpg') 50%;
+  box-shadow: -1px 4px 3px white inset, 0px -2px 2px #555 inset;
+  text-align: center;
+  font-size: 16px;
+  padding: 15px 15px 35px;
+  border-radius: 3px;
+}
+
+:host /deep/ .message h1 {
+  font-size: 1.2em;
+  margin-bottom: 3px;
+  font-weight: bold;
+}
+
+.message > .buttons{
+  width: 80%;
+  position: relative;
+  top: -20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.message > .buttons button {
+  background: url('../../../assets/marble.jpg') 50%;
+  box-shadow: -1px 4px 3px white inset, 0px -2px 2px #555 inset, 0px 0px 4px 5px #222;
+  text-align: center;
+  font-size: 15px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  filter: brightness(0.6);
+  max-width: 80px;
+  flex-grow: 1;
+}
+
+.message > .buttons button.default {
+  filter: sepia(1) brightness(0.7) saturate(2) hue-rotate(50deg);
+}
+.message > .buttons button.cancel {
+  filter: sepia(1) brightness(0.7) saturate(2) hue-rotate(-50deg);
+}

@@ -1,0 +1,15 @@
+<div [hidden]="currentComponent == null">
+  <img class="background-image" src="" #backgroundImage>
+  <div class="message">
+    <div class="container">
+      <div class="outer-box">
+        <ng-template alerts-host></ng-template>
+      </div>
+    </div>
+    <div class="buttons">
+      <button *ngFor="let button of buttons" [ngClass]="button.clazz" (click)="button.callback()">
+        {{button.label}}
+      </button>
+    </div>
+  </div>
+</div>

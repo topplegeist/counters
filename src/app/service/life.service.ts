@@ -3,7 +3,7 @@
  */
 
 import {Injectable} from "@angular/core";
-import {PlayerStats} from "../models/player-stats";
+import {PlayerStats} from "../models/player-stats.model";
 
 @Injectable()
 export class LifeService {

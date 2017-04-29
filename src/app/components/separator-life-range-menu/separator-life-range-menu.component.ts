@@ -6,7 +6,7 @@ import {Component} from "@angular/core";
 import {SeparatorMenuService} from "../../service/separator-menu.service";
 import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
 import {LifeService} from "../../service/life.service";
-import {PlayerStats} from "../../models/player-stats";
+import {PlayerStats} from "../../models/player-stats.model";
 
 @Component({
   selector: 'separator-life-range-menu',
@@ -26,7 +26,7 @@ export class SeparatorLifeRangeMenuComponent {
         .length == 0
     );
     this.separatorMenuService.lifeRange = lifeRange;
-    this.separatorMenuService.state = SeparatorMenuState.MAIN_MENU
+    this.separatorMenuService.state = SeparatorMenuState.MAIN_MENU;
     if (resetAfterLifeRangeChanged)
       this.separatorMenuService.resetLives();
   }

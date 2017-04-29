@@ -3,7 +3,7 @@
  */
 
 import {Injectable} from "@angular/core";
-import {Dice} from "../models/dice";
+import {Dice} from "../models/dice.model";
 import {DiceWinnerState} from "../enums/dice-winner-state.enum";
 
 @Injectable()

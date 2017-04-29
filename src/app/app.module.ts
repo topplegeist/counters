@@ -21,6 +21,9 @@ import {SeparatorLifeRangeMenuComponent} from "./components/separator-life-range
 import {DiceService} from "./service/dice.service";
 import {DiceFieldComponent} from "./components/dice-field/dice-field.component";
 import {DicesViewComponent} from "./components/dices-view/dices-view.component";
+import {AlertsService} from "./service/alerts.service";
+import {AlertWrapperComponent} from "./commons/alert-wrapper/alert-wrapper.component";
+import {AlertsDirective} from "./directives/alerts.directive";
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -30,6 +33,8 @@ export class MyHammerConfig extends HammerGestureConfig {
 @NgModule({
   declarations: [
     AppComponent,
+    AlertsDirective,
+    AlertWrapperComponent,
     SplashscreenComponent,
     MainViewComponent,
     PlayerFieldComponent,
@@ -51,6 +56,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     LifeService,
     SeparatorMenuService,
     DiceService,
+    AlertsService,
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: MyHammerConfig

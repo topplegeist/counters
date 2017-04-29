@@ -4,7 +4,7 @@
 
 import {Injectable} from "@angular/core";
 import {LifeService} from "./life.service";
-import {PlayerStats} from "../models/player-stats";
+import {PlayerStats} from "../models/player-stats.model";
 import {SeparatorMenuState} from "../enums/separator-menu-state.enum";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {DiceService} from "app/service/dice.service";
@@ -49,6 +49,5 @@ export class SeparatorMenuService {
   set lifeRange(value: number) {
     this._lifeRange = value;
   }
-
 
 }
