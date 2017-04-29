@@ -26,6 +26,7 @@ img.background-image {
   width: 90%;
   padding: 4px;
 }
+
 .message > .container:before {
   content: "";
   position: absolute;
@@ -54,7 +55,7 @@ img.background-image {
   font-weight: bold;
 }
 
-.message > .buttons{
+.message > .buttons {
   width: 80%;
   position: relative;
   top: -20px;
@@ -77,6 +78,7 @@ img.background-image {
 .message > .buttons button.default {
   filter: sepia(1) brightness(0.7) saturate(2) hue-rotate(50deg);
 }
+
 .message > .buttons button.cancel {
   filter: sepia(1) brightness(0.7) saturate(2) hue-rotate(-50deg);
 }

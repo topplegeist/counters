@@ -7,6 +7,7 @@ import {ButtonData} from "../models/button-data.model";
 
 export abstract class ConfirmationAlertComponent extends AlertComponent {
   abstract yesCallback();
+
   abstract noCallback();
 
   public getButtons(): ButtonData[] {

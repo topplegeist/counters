@@ -40,7 +40,7 @@ export class AlertWrapperComponent {
   }
 
   public destroyAlert(alert: AlertComponent) {
-    if(this.currentComponent != alert)
+    if (this.currentComponent != alert)
       return;
 
     this.currentComponent = null;
