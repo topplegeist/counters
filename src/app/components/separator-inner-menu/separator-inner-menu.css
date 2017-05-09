@@ -1,6 +1,5 @@
 :host {
   display: flex;
   flex-direction: row;
-  background: linear-gradient(to bottom, #000000 0%, #313131 4%, #000000 50%, #161616 50%, #000000 52%, #313131 96%, #000000 100%);
 }
 

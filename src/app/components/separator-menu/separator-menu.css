@@ -1,15 +1,16 @@
 :host {
   position: relative;
   width: 100%;
-  background: black;
   z-index: 100;
 }
 
 :host.closed {
   min-height: 4px;
-  background: radial-gradient(ellipse at center, darkgoldenrod -20%, black 80%);
+  background: radial-gradient(ellipse at center, darkgoldenrod -20%, rgba(0,0,0, 0.98) 80%);
 }
 
 :host.opened {
   min-height: 80px;
+  background: rgba(0,0,0, 0.98);
+
 }
