@@ -19,9 +19,13 @@ export class HudInteractionLayerComponent {
 
   public leftClick() {
     this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life - 1;
+    let audio = new Audio('./assets/sounds/click.mp3');
+    audio.play();
   }
 
   public rightClick() {
     this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life + 1;
+    let audio = new Audio('./assets/sounds/click.mp3');
+    audio.play();
   }
 }

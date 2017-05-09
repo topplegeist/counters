@@ -26,11 +26,13 @@ export class DiceService {
   }
 
   private launchDice(dice: Dice) {
+    let audio = new Audio('./assets/sounds/click.mp3');
+    audio.play();
     this.active = true;
     if (this._launched) {
       dice.value = Math.floor(Math.random() * 6) + 1;
 
-      this.delay(75 + Math.floor(Math.random() * 75))
+      this.delay(125 + Math.floor(Math.random() * 0))
         .then(() => {
           this.launchDice(dice);
         });
