@@ -19,15 +19,8 @@ export class SeparatorLifeRangeMenuComponent {
   }
 
   public changeLifeRange(lifeRange: number) {
-    let resetAfterLifeRangeChanged: boolean = (
-      this.lifeService.playersStats
-        .map((ps: PlayerStats) => ps.life)
-        .filter((life: number) => life != this.separatorMenuService.lifeRange)
-        .length == 0
-    );
     this.separatorMenuService.lifeRange = lifeRange;
     this.separatorMenuService.state = SeparatorMenuState.MAIN_MENU;
-    if (resetAfterLifeRangeChanged)
-      this.separatorMenuService.resetLives();
+    this.separatorMenuService.resetLives();
   }
 }
