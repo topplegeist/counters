@@ -1,6 +1,6 @@
 <dices-view *ngIf="diceService.active"></dices-view>
 <div class="container">
-  <player-field [inverted]="true" [playerIndex]="1"></player-field>
+  <player-field [inverted]="true" [playerIndex]="1" [initPanelNumber]="3"></player-field>
   <separator-menu [ngClass]="{opened: separatorMenuOpened, closed: !separatorMenuOpened}"></separator-menu>
-  <player-field [playerIndex]="0"></player-field>
+  <player-field [playerIndex]="0" [initPanelNumber]="0"></player-field>
 </div>

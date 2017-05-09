@@ -26,6 +26,7 @@ export abstract class HummerSliderComponent {
     $(this.slidingContainer.nativeElement).width(this.panelWidth * this.panels.length);
     this.panels.forEach((p: ElementRef) => $(p.nativeElement).width(this.panelWidth));
     this.slideToPanel(startingPanel);
+    this.offsetSet.next(this._internalOffset);
   }
 
   private slideToPanel(index: number) {

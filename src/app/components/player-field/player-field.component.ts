@@ -17,6 +17,9 @@ export class PlayerFieldComponent {
   @Input()
   public playerIndex: number = 0;
 
+  @Input()
+  public initPanelNumber: number = 0;
+
 
   constructor(public diceService: DiceService) {
   }

@@ -23,6 +23,9 @@ export class BackgroundSliderComponent extends HummerSliderComponent implements 
   @Input()
   public reversed: boolean;
 
+  @Input()
+  public initPanelNumber: number = 0;
+
   public offset: number = 0;
 
   @ViewChildren("panel1,panel2,panel3,panel4,panel5")
@@ -32,7 +35,7 @@ export class BackgroundSliderComponent extends HummerSliderComponent implements 
 
   public ngAfterViewInit(): void {
     this.panels = this.panelsQueryList.toArray();
-    this.init(0);
+    this.init(this.initPanelNumber);
     this.offsetSlided.subscribe((value: number) => this.offset = value);
     this.offsetSet.subscribe((value: number) => {
       this.transition = true;
