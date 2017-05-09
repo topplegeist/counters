@@ -22,7 +22,7 @@ export class DiceService {
     this._launched = true;
     this.launchDice(this.dices[0]);
     this.launchDice(this.dices[1]);
-    this.delay(3000).then(() => this.calculateWinner());
+    this.delay(1500).then(() => this.calculateWinner());
   }
 
   private launchDice(dice: Dice) {
@@ -30,7 +30,7 @@ export class DiceService {
     if (this._launched) {
       dice.value = Math.floor(Math.random() * 6) + 1;
 
-      this.delay(150 + Math.floor(Math.random() * 75))
+      this.delay(75 + Math.floor(Math.random() * 75))
         .then(() => {
           this.launchDice(dice);
         });
@@ -45,7 +45,7 @@ export class DiceService {
 
   private calculateWinner() {
     this._launched = false;
-    this.delay(500).then(() => {
+    this.delay(250).then(() => {
       if (this.dices[0].value > this.dices[1].value) {
         this.dices[0].winnerState = DiceWinnerState.WINNER;
         this.dices[1].winnerState = DiceWinnerState.LOSER;
