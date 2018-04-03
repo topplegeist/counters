@@ -2,17 +2,20 @@
   display: flex;
   width: 100%;
   height: 100%;
-  background-color: darkred;
+  background-size: auto 100%;
+  background-image: url('../../../assets/splashscreen_background.svg');
+  background-position: 50% 50%;
   justify-content: center;
   align-items: center;
 }
 
 .logo {
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   background-color: white;
+  mask-color: black;
   mask-image: url('../../../assets/logo.svg');
-  mask-size: 100% auto;
+  mask-size: 60% auto;
   mask-repeat: no-repeat;
   mask-position: 50% 50%;
 }

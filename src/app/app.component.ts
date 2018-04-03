@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
       () => {
         this.splashscreenActive = false;
       },
-      2000
+      3000
     );
   }
 }
