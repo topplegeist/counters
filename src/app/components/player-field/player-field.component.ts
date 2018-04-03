@@ -4,6 +4,7 @@
 
 import {Component, Input} from "@angular/core";
 import {DiceService} from "../../service/dice.service";
+import {OptionalCountersService} from "../../service/optional-counters.service";
 
 @Component({
   selector: 'player-field',
@@ -20,7 +21,6 @@ export class PlayerFieldComponent {
   @Input()
   public initPanelNumber: number = 0;
 
-
-  constructor(public diceService: DiceService) {
+  constructor(public diceService: DiceService, public optionalCountersService: OptionalCountersService) {
   }
 }

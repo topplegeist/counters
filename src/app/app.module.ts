@@ -24,12 +24,15 @@ import {DicesViewComponent} from "./components/dices-view/dices-view.component";
 import {AlertsService} from "./service/alerts.service";
 import {AlertWrapperComponent} from "./commons/alert-wrapper/alert-wrapper.component";
 import {AlertsDirective} from "./directives/alerts.directive";
+import {OptionalCountersService} from "./service/optional-counters.service";
+import {OptionalCountersComponent} from "./components/optional-counters/optional-counters.component";
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
     'swipe': {velocity: 0.4, threshold: 20} // override default settings
   }
 }
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +50,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     SeparatorLifeRangeMenuComponent,
     BackgroundSliderComponent,
     DicesViewComponent,
-    DiceFieldComponent
+    DiceFieldComponent,
+    OptionalCountersComponent
   ],
   imports: [
     BrowserModule
@@ -57,6 +61,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     SeparatorMenuService,
     DiceService,
     AlertsService,
+    OptionalCountersService,
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: MyHammerConfig

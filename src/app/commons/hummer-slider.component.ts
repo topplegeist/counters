@@ -7,19 +7,55 @@ import * as $ from "jquery";
 import "hammerjs";
 
 export abstract class HummerSliderComponent {
-  private panelWidth: number;
-  private currentPanel: number = 0;
-
   abstract carousel: ElementRef;
   abstract slidingContainer: ElementRef;
   abstract panels: ElementRef[];
   abstract reversed: boolean;
-
-  private _internalOffset: number = 0;
   public offsetSlided: EventEmitter<number> = new EventEmitter();
   public offsetSet: EventEmitter<number> = new EventEmitter();
-
+  public noSlidingLongPress: EventEmitter<number> = new EventEmitter();
   protected panBoundary: number = .25;
+  private panelWidth: number;
+  private currentPanel: number = 0;
+  private noSlidingTimer: any;
+  private _internalOffset: number = 0;
+
+  public tapStart(event: TouchEvent) {
+    let menu: number;
+    if (this.reversed)
+      menu = (event.touches[0].clientX < this.panelWidth / 2) ? 1 : 0;
+    else
+      menu = (event.touches[0].clientX < this.panelWidth / 2) ? 0 : 1;
+    this.noSlidingTimer = setTimeout(() => {
+      this.noSlidingLongPress.emit(menu);
+    }, 700);
+  }
+
+  public tapEnd() {
+    clearTimeout(this.noSlidingTimer);
+  }
+
+  public mouseDragged(deltaX: number) {
+    this.tapEnd();
+    if (this.reversed)
+      deltaX = -deltaX;
+    deltaX = this.slowDownScroll(deltaX);
+    this.setContainerOffsetX(-this.currentPanel * this.panelWidth + deltaX);
+    this.offsetSlided.next(this._internalOffset);
+  }
+
+  public mouseDropped(deltaX: number) {
+    if (this.reversed)
+      deltaX = -deltaX;
+    if (Math.abs(deltaX) > this.panelWidth * this.panBoundary) {
+      if (deltaX > 0)
+        this.prev();
+      else
+        this.next();
+    } else
+      this.resetPosition();
+    this.offsetSet.next(this._internalOffset);
+  }
 
   protected init(startingPanel: number = 0) {
     this.panelWidth = $(this.carousel.nativeElement).width();
@@ -42,27 +78,6 @@ export abstract class HummerSliderComponent {
 
   private prev() {
     this.slideToPanel(--this.currentPanel);
-  }
-
-  public mouseDragged(deltaX: number) {
-    if (this.reversed)
-      deltaX = -deltaX;
-    deltaX = this.slowDownScroll(deltaX);
-    this.setContainerOffsetX(-this.currentPanel * this.panelWidth + deltaX);
-    this.offsetSlided.next(this._internalOffset);
-  }
-
-  public mouseDropped(deltaX: number) {
-    if (this.reversed)
-      deltaX = -deltaX;
-    if (Math.abs(deltaX) > this.panelWidth * this.panBoundary) {
-      if (deltaX > 0)
-        this.prev();
-      else
-        this.next();
-    } else
-      this.resetPosition();
-    this.offsetSet.next(this._internalOffset);
   }
 
   private slowDownScroll(deltaX: number): number {

@@ -1,5 +1,9 @@
 <div [ngClass]="{'inverted': inverted, 'container': true}">
-  <background-slider [reversed]="inverted" [initPanelNumber]="initPanelNumber"></background-slider>
-  <life-counter *ngIf="!diceService.active" [playerIndex]="playerIndex"></life-counter>
-  <hud-interaction-layer [playerIndex]="playerIndex"></hud-interaction-layer>
+  <background-slider [reversed]="inverted" [initPanelNumber]="initPanelNumber"
+                     [playerIndex]="playerIndex"></background-slider>
+  <div [ngClass]="{'hud': true, 'optional-menu': optionalCountersService.isActive(playerIndex)}">
+    <life-counter *ngIf="!diceService.active" [playerIndex]="playerIndex"></life-counter>
+    <optional-counters [playerIndex]="playerIndex"
+                       *ngIf="optionalCountersService.isActive(playerIndex)"></optional-counters>
+  </div>
 </div>
