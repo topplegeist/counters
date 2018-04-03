@@ -7,6 +7,9 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-insomnia": {
+            "PACKAGE_NAME": "net.soulbound.magiclifecounters"
+        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "net.soulbound.magiclifecounters"
         },
