@@ -4,6 +4,7 @@
 
 import {Component, Input} from "@angular/core";
 import {OptionalCountersService} from "../../service/optional-counters.service";
+import {LifeService} from "../../service/life.service";
 
 @Component({
   selector: 'optional-counters',
@@ -20,7 +21,7 @@ export class OptionalCountersComponent {
 
   private audio;
 
-  constructor(public optionalCountersService: OptionalCountersService) {
+  constructor(public optionalCountersService: OptionalCountersService, public lifeService: LifeService) {
     this.audio = new Audio('./assets/sounds/click.mp3');
   }
 
@@ -35,6 +36,7 @@ export class OptionalCountersComponent {
     if (this.optionalCountersService.commanderCounter[this.playerIndex] < 100) {
       this.audio.play();
       this.optionalCountersService.commanderCounter[this.playerIndex]++;
+      this.lifeService.playersStats[this.playerIndex].life--;
     }
   }
 
@@ -49,6 +51,7 @@ export class OptionalCountersComponent {
     if (this.optionalCountersService.commanderCounter[this.playerIndex] > 0) {
       this.audio.play();
       this.optionalCountersService.commanderCounter[this.playerIndex]--;
+      this.lifeService.playersStats[this.playerIndex].life++;
     }
   }
 
