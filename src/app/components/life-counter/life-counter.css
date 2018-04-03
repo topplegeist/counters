@@ -1,9 +1,17 @@
 :host {
+  flex: 5;
   position: relative;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 div.container {
   color: white;
   font-size: 39vw;
+  line-height: 30vw;
   text-shadow: 2px 2px 4px rgb(164, 114, 11);
+  display: flex;
+  align-self: flex-end;
 }

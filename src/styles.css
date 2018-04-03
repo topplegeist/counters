@@ -8,11 +8,6 @@
   src: url('assets/Mplantin.ttf');
 }
 
-@font-face {
-  font-family: MagicFont;
-  src: url('assets/magic-font.ttf');
-}
-
 html {
   background-color: white;
   height: 100%;

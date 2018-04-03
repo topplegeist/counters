@@ -2,6 +2,8 @@
   <ul #container
       [ngClass]="{'panel-container': true, 'transition': transition}"
       [style.left]="getLeft()"
+      (touchstart)="tapStart($event)"
+      (touchend)="tapEnd()"
       (panleft)="mouseDragged($event.deltaX)"
       (panright)="mouseDragged($event.deltaX)"
       (panend)="mouseDropped($event.deltaX)"

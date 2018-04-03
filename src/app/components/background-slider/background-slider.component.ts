@@ -4,6 +4,7 @@
 
 import {AfterViewInit, Component, ElementRef, Input, QueryList, ViewChild, ViewChildren} from "@angular/core";
 import {HummerSliderComponent} from "../../commons/hummer-slider.component";
+import {OptionalCountersService} from "../../service/optional-counters.service";
 
 @Component({
   selector: 'background-slider',
@@ -26,12 +27,20 @@ export class BackgroundSliderComponent extends HummerSliderComponent implements 
   @Input()
   public initPanelNumber: number = 0;
 
-  public offset: number = 0;
+  @Input()
+  public playerIndex: number = 0;
 
+  public offset: number = 0;
+  public transition: boolean = false;
   @ViewChildren("panel1,panel2,panel3,panel4,panel5")
   protected panelsQueryList: QueryList<ElementRef>;
 
-  public transition: boolean = false;
+  constructor(public optionalCountersService: OptionalCountersService) {
+    super();
+    this.noSlidingLongPress.subscribe((menu: number) => {
+      this.optionalCountersService.show(menu, this.playerIndex);
+    });
+  }
 
   public ngAfterViewInit(): void {
     this.panels = this.panelsQueryList.toArray();
