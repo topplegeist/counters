@@ -27,5 +27,5 @@
     </platform>
     <preference name="Fullscreen" value="true" />
     <preference name="Orientation" value="portrait" />
-    <engine name="android" spec="~6.1.2" />
+  <engine name="android" spec="~6.2.2"/>
 </widget>
