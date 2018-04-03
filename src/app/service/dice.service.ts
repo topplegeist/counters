@@ -11,9 +11,11 @@ export class DiceService {
   public dices: Dice[];
   private _active: boolean = false;
   private _launched: boolean = false;
+  private audio;
 
   constructor() {
     this.dices = [new Dice(), new Dice()];
+    this.audio = new Audio('./assets/sounds/click.mp3');
   }
 
   public launchDices() {
@@ -26,8 +28,7 @@ export class DiceService {
   }
 
   private launchDice(dice: Dice) {
-    let audio = new Audio('./assets/sounds/click.mp3');
-    audio.play();
+    this.audio.play();
     this.active = true;
     if (this._launched) {
       dice.value = Math.floor(Math.random() * 6) + 1;
