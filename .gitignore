@@ -118,4 +118,3 @@ typings/
 /cordova/hooks/
 /cordova/platforms/
 /cordova/plugins/
-!/cordova/plugins/*.json
