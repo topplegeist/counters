@@ -4,6 +4,6 @@
   <div [ngClass]="{'hud': true, 'optional-menu': optionalCountersService.isActive(playerIndex)}">
     <life-counter *ngIf="!diceService.active" [playerIndex]="playerIndex"></life-counter>
     <optional-counters [playerIndex]="playerIndex"
-                       *ngIf="optionalCountersService.isActive(playerIndex)"></optional-counters>
+                       *ngIf="optionalCountersService.isActive(playerIndex) && !diceService.active"></optional-counters>
   </div>
 </div>
