@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
     setTimeout(
       () => {
         this.splashscreenActive = false;
+        (<any>window).plugins.insomnia.keepAwake();
       },
       3000
     );
