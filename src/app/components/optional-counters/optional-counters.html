@@ -2,7 +2,9 @@
   <div class="poison" *ngIf="optionalCountersService.poisonCounterMenu[playerIndex]">
     <div (click)="decreasePoison()"></div>
     <div class="counter" (touchstart)="noPoisonStart()" (touchend)="noPoisonStop()">
-      <div class="icon"></div>
+      <div class="icon-container">
+        <div class="icon"></div>
+      </div>
       <div class="separator"></div>
       <div class="number">{{optionalCountersService.poisonCounter[playerIndex]}}</div>
     </div>
@@ -13,7 +15,9 @@
   <div class="commander" *ngIf="optionalCountersService.commanderCounterMenu[playerIndex]">
     <div (click)="decreaseCommander()"></div>
     <div class="counter" (touchstart)="noCommanderStart()" (touchend)="noCommanderStop()">
-      <div class="icon"></div>
+      <div class="icon-container">
+        <div class="icon"></div>
+      </div>
       <div class="separator"></div>
       <div class="number">{{optionalCountersService.commanderCounter[playerIndex]}}</div>
     </div>

@@ -28,7 +28,7 @@ div.container .counter {
   align-items: stretch;
 }
 
-div.container .counter .icon, div.container .counter .number {
+div.container .counter .icon-container, div.container .counter .number {
   display: flex;
   flex: 1;
 }
@@ -41,10 +41,17 @@ div.container .counter .icon {
   background-color: white;
 }
 
+div.container .counter .icon-container {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(1px 1px 2px rgb(164, 114, 11));
+}
+
 div.container .counter .separator {
   display: block;
   height: 2px;
   background-color: white;
+  filter: drop-shadow(1px 1px 2px rgb(164, 114, 11));
 }
 
 div.container .counter .number {
@@ -53,6 +60,7 @@ div.container .counter .number {
   color: white;
   align-self: center;
   user-select: none;
+  text-shadow: 1px 1px 2px rgb(164, 114, 11);
 }
 
 div.container .commander .counter .icon {
