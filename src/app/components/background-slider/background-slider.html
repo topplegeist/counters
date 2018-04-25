@@ -10,10 +10,10 @@
       (pancancel)="mouseDropped($event.deltaX)"
       (transitionend)="transitionDone()"
   >
-    <li class='panel plains' #panel1></li>
-    <li class='panel island' #panel2></li>
-    <li class='panel forest' #panel3></li>
-    <li class='panel mountain' #panel4></li>
-    <li class='panel swamp' #panel5></li>
+    <li [ngClass]='{ panel: true, plains: this.playerIndex == 0, swamp: this.playerIndex == 1 }' #panel1></li>
+    <li [ngClass]='{ panel: true, island: this.playerIndex == 0, plains: this.playerIndex == 1 }' #panel2></li>
+    <li [ngClass]='{ panel: true, forest: this.playerIndex == 0, island: this.playerIndex == 1 }' #panel3></li>
+    <li [ngClass]='{ panel: true, mountain: this.playerIndex == 0, forest: this.playerIndex == 1 }' #panel4></li>
+    <li [ngClass]='{ panel: true, swamp: this.playerIndex == 0, mountain: this.playerIndex == 1 }' #panel5></li>
   </ul>
 </div>
