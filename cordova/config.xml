@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="net.soulbound.magiclifecounters" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
-    <name>Magic Life Counters</name>
+<widget id="net.topplegeisteam.counters" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+    <name>Counters</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Unofficial App for MTG Life Counters
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
@@ -20,6 +20,11 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <icon src="res/mipmap-mdpi/counters_ic.png" density="mdpi" />
+        <icon src="res/mipmap-hdpi/counters_ic.png" density="hdpi" />
+        <icon src="res/mipmap-xhdpi/counters_ic.png" density="xhdpi" />
+        <icon src="res/mipmap-xxhdpi/counters_ic.png" density="xxhdpi" />
+        <icon src="res/mipmap-xxxhdpi/counters_ic.png" density="xxxhdpi" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
