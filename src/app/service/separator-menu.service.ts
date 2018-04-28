@@ -8,6 +8,7 @@ import {PlayerStats} from "../models/player-stats.model";
 import {SeparatorMenuState} from "../enums/separator-menu-state.enum";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {DiceService} from "app/service/dice.service";
+import {OptionalCountersService} from "./optional-counters.service";
 
 @Injectable()
 export class SeparatorMenuService {
@@ -17,7 +18,8 @@ export class SeparatorMenuService {
   public menuStateChanged: BehaviorSubject<SeparatorMenuState> = new BehaviorSubject(this._state);
 
   constructor(private lifeService: LifeService,
-              private diceService: DiceService) {
+              private diceService: DiceService,
+              private optionalCountersService: OptionalCountersService) {
   }
 
   get state(): SeparatorMenuState {
@@ -34,7 +36,9 @@ export class SeparatorMenuService {
       .map((stats: PlayerStats) => {
         stats.life = this.lifeRange;
         return stats;
-      })
+      });
+    this.optionalCountersService.commanderCounter = [0, 0];
+    this.optionalCountersService.poisonCounter = [0, 0];
   }
 
   public activateDices() {
