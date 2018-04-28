@@ -58,13 +58,13 @@ export class OptionalCountersComponent {
   public noCommanderStart() {
     this.noCommanderTimer = setTimeout(() => {
       this.optionalCountersService.show(1, this.playerIndex);
-    }, 700);
+    }, 350);
   }
 
   public noPoisonStart() {
     this.noPoisonTimer = setTimeout(() => {
       this.optionalCountersService.show(0, this.playerIndex);
-    }, 700);
+    }, 350);
   }
 
   public noCommanderStop() {

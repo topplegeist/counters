@@ -28,7 +28,7 @@ export abstract class HummerSliderComponent {
       menu = (event.touches[0].clientX < this.panelWidth / 2) ? 0 : 1;
     this.noSlidingTimer = setTimeout(() => {
       this.noSlidingLongPress.emit(menu);
-    }, 700);
+    }, 350);
   }
 
   public tapEnd() {
