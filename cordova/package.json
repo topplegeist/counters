@@ -1,0 +1,13 @@
+{
+  "name": "net.topplegeisteam.counters",
+  "version": "1.0.0",
+  "displayName": "Counters",
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
+  },
+  "dependencies": {
+    "cordova-android": "~6.2.2"
+  }
+}
