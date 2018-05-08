@@ -1,11 +1,13 @@
 /**
- * Created by Soulbound Team on 17/04/2017.
+ * Created by Topplegeist Team on 17/04/2017.
  */
 
 import {Component, Input, OnInit} from "@angular/core";
 import {SeparatorMenuService} from "../../service/separator-menu.service";
 import {SeparatorMenuInnerButtonType} from "../../enums/separator-menu-inner-button-type.enum";
 import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
+import {AlertsService} from "../../service/alerts.service";
+import {InfoAlertComponent} from "../info-alert/info-alert.component";
 
 @Component({
   selector: 'separator-inner-menu-button',

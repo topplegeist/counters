@@ -1,4 +1,8 @@
 /**
+ * Created by Topplegeist Team on 08/05/2018.
+ */
+
+/**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
  *

@@ -1,5 +1,5 @@
 /**
- * Created by Soulbound Team on 13/04/17.
+ * Created by Topplegeist Team on 13/04/17.
  */
 
 import {Component} from "@angular/core";

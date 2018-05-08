@@ -1,5 +1,5 @@
 /**
- * Created by Soulbound Team on 29/04/2017.
+ * Created by Topplegeist Team on 29/04/2017.
  */
 
 import {Component, ElementRef, Type, ViewChild} from "@angular/core";
