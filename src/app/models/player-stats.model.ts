@@ -1,6 +1,7 @@
 /**
- * Created by Soulbound Team on 13/04/2017.
+ * Created by Topplegeist Team on 13/04/2017.
  */
+
 export class PlayerStats {
   private _life: number = 20;
 

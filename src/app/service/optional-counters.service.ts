@@ -1,8 +1,8 @@
-import {Injectable} from "@angular/core";
-
 /**
- * Created by Soulbound Team on 03/04/2017.
+ * Created by Topplegeist Team on 03/04/2017.
  */
+
+import {Injectable} from "@angular/core";
 
 @Injectable()
 export class OptionalCountersService {

@@ -1,12 +1,11 @@
 /**
- * Created by Soulbound Team on 13/04/2017.
+ * Created by Topplegeist Team on 13/04/2017.
  */
 
 import {Component} from "@angular/core";
 import {SeparatorMenuService} from "../../service/separator-menu.service";
 import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
 import {LifeService} from "../../service/life.service";
-import {PlayerStats} from "../../models/player-stats.model";
 
 @Component({
   selector: 'separator-life-range-menu',

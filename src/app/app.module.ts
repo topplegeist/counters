@@ -1,5 +1,5 @@
 /**
- * Created by Soulbound Team on 13/04/2017.
+ * Created by Topplegeist Team on 13/04/2017.
  */
 
 import {BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig} from "@angular/platform-browser";
@@ -26,6 +26,7 @@ import {AlertWrapperComponent} from "./commons/alert-wrapper/alert-wrapper.compo
 import {AlertsDirective} from "./directives/alerts.directive";
 import {OptionalCountersService} from "./service/optional-counters.service";
 import {OptionalCountersComponent} from "./components/optional-counters/optional-counters.component";
+import {InfoAlertComponent} from "./components/info-alert/info-alert.component";
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
