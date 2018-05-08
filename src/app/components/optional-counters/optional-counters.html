@@ -1,7 +1,7 @@
 <div class="container">
   <div class="poison" *ngIf="optionalCountersService.poisonCounterMenu[playerIndex]">
     <div (click)="decreasePoison()"></div>
-    <div class="counter" (touchstart)="noPoisonStart()" (touchend)="noPoisonStop()">
+    <div class="counter" (touchstart)="poisonCloseTimerStart()" (touchend)="poisonCloseTimerStop()">
       <div class="icon-container">
         <div class="icon"></div>
       </div>
@@ -11,10 +11,10 @@
     <div (click)="increasePoison()"></div>
   </div>
   <div class="poison" *ngIf="!optionalCountersService.poisonCounterMenu[playerIndex]"
-       (touchstart)="noPoisonStart()" (touchend)="noPoisonStop()"></div>
+       (touchstart)="poisonCloseTimerStart()" (touchend)="poisonCloseTimerStop()"></div>
   <div class="commander" *ngIf="optionalCountersService.commanderCounterMenu[playerIndex]">
     <div (click)="decreaseCommander()"></div>
-    <div class="counter" (touchstart)="noCommanderStart()" (touchend)="noCommanderStop()">
+    <div class="counter" (touchstart)="commanderCloseTimerStart()" (touchend)="commanderCloseTimerStop()">
       <div class="icon-container">
         <div class="icon"></div>
       </div>
@@ -24,5 +24,5 @@
     <div (click)="increaseCommander()"></div>
   </div>
   <div class="commander" *ngIf="!optionalCountersService.commanderCounterMenu[playerIndex]"
-       (touchstart)="noCommanderStart()" (touchend)="noCommanderStop()"></div>
+       (touchstart)="commanderCloseTimerStart()" (touchend)="commanderCloseTimerStop()"></div>
 </div>

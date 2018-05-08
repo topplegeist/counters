@@ -15,9 +15,9 @@ export class OptionalCountersComponent {
   @Input()
   public playerIndex: number;
 
-  private noCommanderTimer: any;
+  private commanderTimer: any = null;
 
-  private noPoisonTimer: any;
+  private poisonTimer: any = null;
 
   private audio;
 
@@ -55,23 +55,29 @@ export class OptionalCountersComponent {
     }
   }
 
-  public noCommanderStart() {
-    this.noCommanderTimer = setTimeout(() => {
+  public commanderCloseTimerStart() {
+    if (this.commanderTimer)
+      return;
+    this.commanderTimer = setTimeout(() => {
       this.optionalCountersService.show(1, this.playerIndex);
     }, 350);
   }
 
-  public noPoisonStart() {
-    this.noPoisonTimer = setTimeout(() => {
+  public poisonCloseTimerStart() {
+    if (this.poisonTimer)
+      return;
+    this.poisonTimer = setTimeout(() => {
       this.optionalCountersService.show(0, this.playerIndex);
     }, 350);
   }
 
-  public noCommanderStop() {
-    clearTimeout(this.noCommanderTimer);
+  public commanderCloseTimerStop() {
+    clearTimeout(this.commanderTimer);
+    this.commanderTimer = null;
   }
 
-  public noPoisonStop() {
-    clearTimeout(this.noPoisonTimer);
+  public poisonCloseTimerStop() {
+    clearTimeout(this.poisonTimer);
+    this.poisonTimer = null;
   }
 }

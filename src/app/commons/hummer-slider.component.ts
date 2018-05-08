@@ -17,22 +17,27 @@ export abstract class HummerSliderComponent {
   protected panBoundary: number = .25;
   private panelWidth: number;
   private currentPanel: number = 0;
-  private noSlidingTimer: any;
+  private noSlidingTimer: any = null;
   private _internalOffset: number = 0;
 
   public tapStart(event: TouchEvent) {
     let menu: number;
+
+    if (this.noSlidingTimer)
+      return;
     if (this.reversed)
       menu = (event.touches[0].clientX < this.panelWidth / 2) ? 1 : 0;
     else
       menu = (event.touches[0].clientX < this.panelWidth / 2) ? 0 : 1;
     this.noSlidingTimer = setTimeout(() => {
+      this.noSlidingTimer = null;
       this.noSlidingLongPress.emit(menu);
     }, 350);
   }
 
   public tapEnd() {
     clearTimeout(this.noSlidingTimer);
+    this.noSlidingTimer = null;
   }
 
   public mouseDragged(deltaX: number) {
