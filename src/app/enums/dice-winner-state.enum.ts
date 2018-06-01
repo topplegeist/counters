@@ -1,5 +1,5 @@
 /**
- * Created by Soulbound Team on 25/04/2017.
+ * Created by Topplegeist Team on 25/04/2017.
  */
 
 export enum DiceWinnerState {

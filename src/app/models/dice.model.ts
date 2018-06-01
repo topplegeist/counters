@@ -1,7 +1,9 @@
-import {DiceWinnerState} from "../enums/dice-winner-state.enum";
 /**
- * Created by Soulbound Team on 13/04/2017.
+ * Created by Topplegeist Team on 13/04/2017.
  */
+
+import {DiceWinnerState} from "../enums/dice-winner-state.enum";
+
 export class Dice {
   private _value: number = 0;
   private _winnerState: DiceWinnerState = DiceWinnerState.INIT;
