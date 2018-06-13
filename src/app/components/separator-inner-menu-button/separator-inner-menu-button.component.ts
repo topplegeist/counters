@@ -7,6 +7,7 @@ import {SeparatorMenuService} from "../../service/separator-menu.service";
 import {SeparatorMenuInnerButtonType} from "../../enums/separator-menu-inner-button-type.enum";
 import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
 import {AlertsService} from "../../service/alerts.service";
+import {SettingsAlertComponent} from "../settings-alert/settings-alert.component";
 
 @Component({
   selector: 'separator-inner-menu-button',
@@ -19,7 +20,7 @@ export class SeparatorInnerMenuButtonComponent implements OnInit {
 
   public classObj: any = {};
 
-  constructor(private separatorMenuService: SeparatorMenuService) {
+  constructor(private separatorMenuService: SeparatorMenuService, private alertsService: AlertsService) {
   }
 
   ngOnInit(): void {
@@ -31,7 +32,7 @@ export class SeparatorInnerMenuButtonComponent implements OnInit {
   public doButtonAction() {
     switch (this.iconType) {
       case SeparatorMenuInnerButtonType.settings:
-        // TODO:
+        this.alertsService.show(SettingsAlertComponent);
         break;
       case SeparatorMenuInnerButtonType.dices:
         this.separatorMenuService.activateDices();

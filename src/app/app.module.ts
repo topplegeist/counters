@@ -26,6 +26,7 @@ import {AlertWrapperComponent} from "./commons/alert-wrapper/alert-wrapper.compo
 import {AlertsDirective} from "./directives/alerts.directive";
 import {OptionalCountersService} from "./service/optional-counters.service";
 import {OptionalCountersComponent} from "./components/optional-counters/optional-counters.component";
+import {SettingsAlertComponent} from "./components/settings-alert/settings-alert.component";
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -34,6 +35,9 @@ export class MyHammerConfig extends HammerGestureConfig {
 }
 
 @NgModule({
+  entryComponents: [
+    SettingsAlertComponent
+  ],
   declarations: [
     AppComponent,
     AlertsDirective,
@@ -51,7 +55,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     BackgroundSliderComponent,
     DicesViewComponent,
     DiceFieldComponent,
-    OptionalCountersComponent
+    OptionalCountersComponent,
+    SettingsAlertComponent
   ],
   imports: [
     BrowserModule

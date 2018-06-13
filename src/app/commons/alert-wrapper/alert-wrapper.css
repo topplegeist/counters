@@ -1,11 +1,6 @@
-img.background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 400;
-  filter: blur(5px) grayscale(40%);
+:host, :host button {
+  font-family: BelerenSmallCaps, serif;
+  font-size: 1.4em;
 }
 
 .message {
@@ -44,13 +39,12 @@ img.background-image {
   background: url('../../../assets/marble.jpg') 50%;
   box-shadow: -1px 4px 3px white inset, 0px -2px 2px #555 inset;
   text-align: center;
-  font-size: 16px;
   padding: 15px 15px 35px;
   border-radius: 3px;
 }
 
 :host /deep/ .message h1 {
-  font-size: 1.2em;
+  font-size: 1.7em;
   margin-bottom: 3px;
   font-weight: bold;
 }

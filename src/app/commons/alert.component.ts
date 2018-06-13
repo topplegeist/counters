@@ -14,7 +14,7 @@ export abstract class AlertComponent {
 
   public getButtons(): ButtonData[] {
     let button1 = new ButtonData();
-    button1.label = "OK";
+    button1.label = "Ok";
     button1.clazz = "default";
     button1.callback = () => this.close();
 

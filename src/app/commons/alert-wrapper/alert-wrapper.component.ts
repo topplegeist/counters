@@ -7,7 +7,6 @@ import {AlertsDirective} from "../../directives/alerts.directive";
 import {AlertComponent} from "../alert.component";
 import {AlertsService} from "../../service/alerts.service";
 import {ButtonData} from "../../models/button-data.model";
-import * as html2canvas from "html2canvas";
 
 @Component({
   selector: 'alert-wrapper',
@@ -29,14 +28,10 @@ export class AlertWrapperComponent {
   }
 
   public loadAlert(alert: Type<AlertComponent>) {
-    html2canvas(document.body)
-      .then((canvas: HTMLCanvasElement) => {
-        this.backgroundImage.nativeElement.src = canvas.toDataURL();
-        this.alertsHost.clear();
-        this.currentComponent = this.alertsHost.add(alert);
-        this.currentComponent.alertsService = this.alertsService;
-        this.buttons = this.currentComponent.getButtons();
-      });
+    this.alertsHost.clear();
+    this.currentComponent = this.alertsHost.add(alert);
+    this.currentComponent.alertsService = this.alertsService;
+    this.buttons = this.currentComponent.getButtons();
   }
 
   public destroyAlert(alert: AlertComponent) {
