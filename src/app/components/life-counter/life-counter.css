@@ -13,5 +13,11 @@ div.container {
   line-height: 30vw;
   text-shadow: 2px 2px 4px rgb(164, 114, 11);
   display: flex;
+  flex: 1;
+  justify-content: space-evenly;
   align-self: flex-end;
+}
+
+p.operator {
+  font-size: 20vw;
 }
