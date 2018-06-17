@@ -8,8 +8,12 @@ import {Injectable} from "@angular/core";
 export class OptionalCountersService {
   public poisonCounterMenu: boolean[] = [false, false];
   public commanderCounterMenu: boolean[] = [false, false];
+  public partnerCounterMenu: boolean[] = [false, false];
+  public citiesBlessingToken: boolean[] = [false, false];
+  public monarchToken: number = -1;
   public poisonCounter: number[] = [0, 0];
   public commanderCounter: number[] = [0, 0];
+  public partnerCounter: number[] = [0, 0];
 
   public show(menu: number, playerIndex: number) {
     if (menu == 0)

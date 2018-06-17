@@ -27,6 +27,7 @@ import {AlertsDirective} from "./directives/alerts.directive";
 import {OptionalCountersService} from "./service/optional-counters.service";
 import {OptionalCountersComponent} from "./components/optional-counters/optional-counters.component";
 import {SettingsAlertComponent} from "./components/settings-alert/settings-alert.component";
+import {FormsModule} from "@angular/forms";
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -59,7 +60,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     SettingsAlertComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [
     LifeService,

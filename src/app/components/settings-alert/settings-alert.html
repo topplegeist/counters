@@ -1,31 +1,33 @@
-<h1>Default settings</h1>
-<div class="header">
-  <span>P1</span>
-  <span class="spacer"></span>
-  <span>P2</span>
-</div>
-<div class="row">
-  <input type="checkbox">
-  <span>Commander</span>
-  <input type="checkbox">
-</div>
-<div class="row">
-  <input type="checkbox">
-  <span>Partner</span>
-  <input type="checkbox">
-</div>
-<div class="row">
-  <input type="checkbox">
-  <span>Poison</span>
-  <input type="checkbox">
-</div>
-<div class="row">
-  <input type="checkbox">
-  <span>Monarch</span>
-  <input type="checkbox">
-</div>
-<div class="row">
-  <input type="checkbox">
-  <span>City's blessing</span>
-  <input type="checkbox">
-</div>
+<form #settingsForm="ngForm">
+  <h1>Default settings</h1>
+  <div class="header">
+    <span>P1</span>
+    <span class="spacer"></span>
+    <span>P2</span>
+  </div>
+  <div class="row">
+    <input type="checkbox" [(ngModel)]="model.player1Commander" name="player1Commander">
+    <span>Commander</span>
+    <input type="checkbox" [(ngModel)]="model.player2Commander" name="player2Commander">
+  </div>
+  <div class="row">
+    <input type="checkbox" [(ngModel)]="model.player1Partner" name="player1Partner">
+    <span>Partner</span>
+    <input type="checkbox" [(ngModel)]="model.player2Partner" name="player2Partner">
+  </div>
+  <div class="row">
+    <input type="checkbox" [(ngModel)]="model.player1Poison" name="player1Poison">
+    <span>Poison</span>
+    <input type="checkbox" [(ngModel)]="model.player2Poison" name="player2Poison">
+  </div>
+  <div class="row">
+    <input type="checkbox" [(ngModel)]="model.player1Monarch" name="player1Monarch">
+    <span>Monarch</span>
+    <input type="checkbox" [(ngModel)]="model.player2Monarch" name="player2Monarch">
+  </div>
+  <div class="row">
+    <input type="checkbox" [(ngModel)]="model.player1CitysBlessing" name="player1CitysBlessing">
+    <span>City's blessing</span>
+    <input type="checkbox" [(ngModel)]="model.player2CitysBlessing" name="player2CitysBlessing">
+  </div>
+</form>

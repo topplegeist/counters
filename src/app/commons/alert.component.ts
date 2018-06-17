@@ -12,16 +12,26 @@ export abstract class AlertComponent {
     this.alertsService.close(this);
   }
 
+  public abstract save();
+
+  public abstract cancel();
+
   public getButtons(): ButtonData[] {
     let button1 = new ButtonData();
     button1.label = "Ok";
     button1.clazz = "default";
-    button1.callback = () => this.close();
+    button1.callback = () => {
+      this.save();
+      this.close();
+    };
 
     let button2 = new ButtonData();
     button2.label = "Cancel";
     button2.clazz = "cancel";
-    button2.callback = () => this.close();
+    button2.callback = () => {
+      this.cancel();
+      this.close();
+    };
 
     return [button1, button2];
   }
