@@ -21,3 +21,9 @@ div.container {
 p.operator {
   font-size: 20vw;
 }
+
+img.centered {
+  margin: auto;
+  width: 12vw;
+  height: 12vw;
+}

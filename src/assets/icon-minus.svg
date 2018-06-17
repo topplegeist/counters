@@ -57,7 +57,7 @@
      id="layer1"
      transform="translate(-228.57145,-484.36218)">
     <path
-       style="fill:#000000;fill-opacity:0.50462964;fill-rule:evenodd;stroke:none"
+       style="fill:#FFFFFF;fill-opacity:0.15462964;fill-rule:evenodd;stroke:none"
        d="M 24 0 C 10.745166 2.3684758e-15 7.4559566e-17 10.745166 0 24 C 4.7369516e-15 37.254834 10.745166 48 24 48 C 37.254834 48 48 37.254834 48 24 C 48 10.745166 37.254834 -7.0308678e-15 24 0 z M 13.71875 20.5 L 38.46875 20.5 L 38.46875 20.75 L 34.25 27.53125 L 9.5 27.53125 L 9.5 27.28125 L 13.71875 20.5 z "
        transform="translate(228.57145,484.36218)"
        id="path2987" />
