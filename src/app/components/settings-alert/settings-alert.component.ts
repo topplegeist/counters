@@ -7,6 +7,7 @@ import {Component, OnInit, ViewChild} from "@angular/core";
 import {SettingsAlertViewModel} from "./settings-alert.viewmodel";
 import {OptionalCountersService} from "../../service/optional-counters.service";
 import {NgForm} from "@angular/forms";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'settings-alert',
@@ -16,6 +17,7 @@ import {NgForm} from "@angular/forms";
 export class SettingsAlertComponent extends AlertComponent implements OnInit {
   public model: SettingsAlertViewModel;
   public startingModel: SettingsAlertViewModel;
+  private modelSubscription: Subscription;
 
   @ViewChild('settingsForm') public settingsForm: NgForm;
 
@@ -52,7 +54,7 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
   }
 
   onChanges(): void {
-    this.settingsForm.valueChanges.subscribe((ignore: any) => this.writeModelToService(ignore));
+    this.modelSubscription = this.settingsForm.valueChanges.subscribe((model: any) => this.writeModelToService(model));
   }
 
   writeModelToService(model: SettingsAlertViewModel) {
@@ -68,7 +70,7 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
   }
 
   save() {
-    this.writeModelToService(this.model);
+    this.modelSubscription.unsubscribe();
   }
 
   cancel() {
