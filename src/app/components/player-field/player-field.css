@@ -14,7 +14,7 @@ div.container.inverted {
 }
 
 div.container .hud {
-  height: 68%;
+  height: calc(50% + 22vw);
   align-self: stretch;
   display: flex;
   align-items: stretch;
