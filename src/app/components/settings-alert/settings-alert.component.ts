@@ -75,5 +75,6 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
 
   cancel() {
     this.writeModelToService(this.startingModel);
+    this.modelSubscription.unsubscribe();
   }
 }
