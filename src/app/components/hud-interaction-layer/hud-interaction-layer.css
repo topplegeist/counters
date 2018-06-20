@@ -17,3 +17,15 @@ div.life.left, div.life.right {
   flex: 1;
   z-index: 50;
 }
+
+div.life.left {
+  background: url("assets/icon-minus.svg") 24% calc(100% - 22vw + 6vw)/12vw no-repeat;
+}
+
+div.life.right {
+  background: url("assets/icon-plus.svg") 76% calc(100% - 22vw + 6vw)/12vw no-repeat;
+}
+
+div.life img {
+  margin: auto;
+}

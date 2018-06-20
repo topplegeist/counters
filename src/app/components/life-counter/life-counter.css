@@ -9,21 +9,11 @@
 
 div.container {
   color: white;
-  font-size: 39vw;
-  line-height: 30vw;
+  font-size: 37vw;
   text-shadow: 2px 2px 4px rgb(164, 114, 11);
-  display: flex;
-  flex: 1;
-  justify-content: space-evenly;
-  align-self: flex-end;
+  margin: auto auto 0;
 }
 
 p.operator {
   font-size: 20vw;
-}
-
-img.centered {
-  margin: auto;
-  width: 12vw;
-  height: 12vw;
 }
