@@ -10,6 +10,8 @@ export class SettingsAlertViewModel {
     public player2Monarch: boolean,
     public player1CitysBlessing: boolean,
     public player2CitysBlessing: boolean,
+    public player1ShowIcons: boolean,
+    public player2ShowIcons: boolean,
   ) {
   }
 }

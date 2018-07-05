@@ -5,6 +5,7 @@
 import {Component, Input} from "@angular/core";
 import {OptionalCountersService} from "../../service/optional-counters.service";
 import {LifeService} from "../../service/life.service";
+import {HUDService} from "../../service/hud.service";
 
 @Component({
   selector: 'optional-counters',
@@ -21,7 +22,9 @@ export class OptionalCountersComponent {
 
   private audio;
 
-  constructor(public optionalCountersService: OptionalCountersService, public lifeService: LifeService) {
+  constructor(public optionalCountersService: OptionalCountersService,
+              public lifeService: LifeService,
+              public hudService: HUDService) {
     this.audio = new Audio('./assets/sounds/click.mp3');
   }
 

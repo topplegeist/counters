@@ -18,11 +18,11 @@ div.life.left, div.life.right {
   z-index: 50;
 }
 
-div.life.left {
+div.life.left:not(.no-icon) {
   background: url("assets/icon-minus.svg") 24% calc(100% - 22vw + 6vw)/12vw no-repeat;
 }
 
-div.life.right {
+div.life.right:not(.no-icon) {
   background: url("assets/icon-plus.svg") 76% calc(100% - 22vw + 6vw)/12vw no-repeat;
 }
 

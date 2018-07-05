@@ -4,6 +4,7 @@
 
 import {Component, Input} from "@angular/core";
 import {LifeService} from "../../service/life.service";
+import {HUDService} from "../../service/hud.service";
 
 @Component({
   selector: 'hud-interaction-layer',
@@ -12,9 +13,9 @@ import {LifeService} from "../../service/life.service";
 })
 export class HudInteractionLayerComponent {
   @Input()
-  private playerIndex: number;
+  public playerIndex: number;
 
-  constructor(private lifeService: LifeService) {
+  constructor(private lifeService: LifeService, public hudService: HUDService) {
   }
 
   public leftClick() {

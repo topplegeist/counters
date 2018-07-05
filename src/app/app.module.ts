@@ -28,6 +28,7 @@ import {OptionalCountersService} from "./service/optional-counters.service";
 import {OptionalCountersComponent} from "./components/optional-counters/optional-counters.component";
 import {SettingsAlertComponent} from "./components/settings-alert/settings-alert.component";
 import {FormsModule} from "@angular/forms";
+import {HUDService} from "./service/hud.service";
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -69,6 +70,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     DiceService,
     AlertsService,
     OptionalCountersService,
+    HUDService,
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: MyHammerConfig

@@ -1,6 +1,8 @@
 <div class="container">
   <div class="poison" *ngIf="optionalCountersService.poisonCounterMenu[playerIndex]">
-    <div (click)="decreasePoison()"></div>
+    <div class="minus" (click)="decreasePoison()">
+      <div *ngIf="this.hudService.showIcons[playerIndex]">-</div>
+    </div>
     <div class="counter" (touchstart)="poisonCloseTimerStart()" (touchend)="poisonCloseTimerStop()">
       <div class="icon-container">
         <div class="icon"></div>
@@ -8,12 +10,16 @@
       <div class="separator"></div>
       <div class="number">{{optionalCountersService.poisonCounter[playerIndex]}}</div>
     </div>
-    <div (click)="increasePoison()"></div>
+    <div class="plus" (click)="increasePoison()">
+      <div *ngIf="this.hudService.showIcons[playerIndex]">+</div>
+    </div>
   </div>
   <div class="poison" *ngIf="!optionalCountersService.poisonCounterMenu[playerIndex]"
        (touchstart)="poisonCloseTimerStart()" (touchend)="poisonCloseTimerStop()"></div>
   <div class="commander" *ngIf="optionalCountersService.commanderCounterMenu[playerIndex]">
-    <div (click)="decreaseCommander()"></div>
+    <div class="minus" (click)="decreaseCommander()">
+      <div *ngIf="this.hudService.showIcons[playerIndex]">-</div>
+    </div>
     <div class="counter" (touchstart)="commanderCloseTimerStart()" (touchend)="commanderCloseTimerStop()">
       <div class="icon-container">
         <div class="icon"></div>
@@ -21,7 +27,9 @@
       <div class="separator"></div>
       <div class="number">{{optionalCountersService.commanderCounter[playerIndex]}}</div>
     </div>
-    <div (click)="increaseCommander()"></div>
+    <div class="plus" (click)="increaseCommander()">
+      <div *ngIf="this.hudService.showIcons[playerIndex]">+</div>
+    </div>
   </div>
   <div class="commander" *ngIf="!optionalCountersService.commanderCounterMenu[playerIndex]"
        (touchstart)="commanderCloseTimerStart()" (touchend)="commanderCloseTimerStop()"></div>

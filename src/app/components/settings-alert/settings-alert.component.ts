@@ -8,6 +8,7 @@ import {SettingsAlertViewModel} from "./settings-alert.viewmodel";
 import {OptionalCountersService} from "../../service/optional-counters.service";
 import {NgForm} from "@angular/forms";
 import {Subscription} from "rxjs/Subscription";
+import {HUDService} from "../../service/hud.service";
 
 @Component({
   selector: 'settings-alert',
@@ -21,7 +22,8 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
 
   @ViewChild('settingsForm') public settingsForm: NgForm;
 
-  constructor(private optionalCountersService: OptionalCountersService) {
+  constructor(private optionalCountersService: OptionalCountersService,
+              private hudService: HUDService) {
     super();
     this.model = new SettingsAlertViewModel(
       this.optionalCountersService.commanderCounterMenu[0],
@@ -33,7 +35,9 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
       this.optionalCountersService.monarchToken == 0,
       this.optionalCountersService.monarchToken == 1,
       this.optionalCountersService.citiesBlessingToken[0],
-      this.optionalCountersService.citiesBlessingToken[1]
+      this.optionalCountersService.citiesBlessingToken[1],
+      this.hudService.showIcons[0],
+      this.hudService.showIcons[1]
     );
     this.startingModel = new SettingsAlertViewModel(
       this.optionalCountersService.commanderCounterMenu[0],
@@ -45,7 +49,9 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
       this.optionalCountersService.monarchToken == 0,
       this.optionalCountersService.monarchToken == 1,
       this.optionalCountersService.citiesBlessingToken[0],
-      this.optionalCountersService.citiesBlessingToken[1]
+      this.optionalCountersService.citiesBlessingToken[1],
+      this.hudService.showIcons[0],
+      this.hudService.showIcons[1]
     );
   }
 
@@ -67,6 +73,8 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
     this.optionalCountersService.monarchToken = model.player1Monarch ? 0 : (model.player2Monarch ? 1 : -1);
     this.optionalCountersService.citiesBlessingToken[0] = model.player1CitysBlessing;
     this.optionalCountersService.citiesBlessingToken[1] = model.player2CitysBlessing;
+    this.hudService.showIcons[0] = model.player1ShowIcons;
+    this.hudService.showIcons[1] = model.player2ShowIcons;
   }
 
   save() {
