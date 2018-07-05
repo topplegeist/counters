@@ -58,21 +58,14 @@
 }
 
 .message > .buttons button {
-  background: url('../../../assets/marble.jpg') 50%;
-  box-shadow: -1px 4px 3px white inset, 0px -2px 2px #555 inset, 0px 0px 4px 5px #222;
+  color: white;
+  background-color: rgb(164, 114, 11);
+  box-shadow: -1px 4px 3px #d9a040 inset, 0px -2px 2px #a4720b inset, 0px 0px 4px 5px #222;
   text-align: center;
   font-size: 15px;
   padding: 4px 8px;
-  border-radius: 8px;
-  filter: brightness(0.6);
+  border: 0px;
+  border-radius: 5px;
   max-width: 80px;
   flex-grow: 1;
-}
-
-.message > .buttons button.default {
-  filter: sepia(1) brightness(0.7) saturate(2) hue-rotate(50deg);
-}
-
-.message > .buttons button.cancel {
-  filter: sepia(1) brightness(0.7) saturate(2) hue-rotate(-50deg);
 }
