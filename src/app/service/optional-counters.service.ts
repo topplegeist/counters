@@ -18,11 +18,17 @@ export class OptionalCountersService {
   public show(menu: number, playerIndex: number) {
     if (menu == 0)
       this.poisonCounterMenu[playerIndex] = !this.poisonCounterMenu[playerIndex];
-    else
+    else if (menu == 1)
       this.commanderCounterMenu[playerIndex] = !this.commanderCounterMenu[playerIndex];
+    else if (menu == 2)
+      this.partnerCounterMenu[playerIndex] = !this.partnerCounterMenu[playerIndex];
   }
 
   public isActive(playerIndex: number): boolean {
-    return playerIndex != null && (this.poisonCounterMenu[playerIndex] || this.commanderCounterMenu[playerIndex]);
+    return playerIndex != null && (
+      this.poisonCounterMenu[playerIndex] ||
+      this.commanderCounterMenu[playerIndex] ||
+      this.partnerCounterMenu[playerIndex]
+    );
   }
 }

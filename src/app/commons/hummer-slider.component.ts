@@ -26,9 +26,15 @@ export abstract class HummerSliderComponent {
     if (this.noSlidingTimer)
       return;
     if (this.reversed)
-      menu = (event.touches[0].clientX < this.panelWidth / 2) ? 1 : 0;
+      menu = (event.touches[0].clientX < this.panelWidth / 3) ? 1 :
+        (
+          (event.touches[0].clientX < this.panelWidth * 2 / 3) ? 2 : 0
+        );
     else
-      menu = (event.touches[0].clientX < this.panelWidth / 2) ? 0 : 1;
+      menu = (event.touches[0].clientX < this.panelWidth / 2) ? 0 :
+        (
+          (event.touches[0].clientX < this.panelWidth * 2 / 3) ? 2 : 1
+        );
     this.noSlidingTimer = setTimeout(() => {
       this.noSlidingTimer = null;
       this.noSlidingLongPress.emit(menu);

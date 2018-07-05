@@ -20,6 +20,8 @@ export class OptionalCountersComponent {
 
   private poisonTimer: any = null;
 
+  private partnerTimer: any = null;
+
   private audio;
 
   constructor(public optionalCountersService: OptionalCountersService,
@@ -43,6 +45,14 @@ export class OptionalCountersComponent {
     }
   }
 
+  public increasePartner() {
+    if (this.optionalCountersService.partnerCounter[this.playerIndex] < 100) {
+      this.audio.play();
+      this.optionalCountersService.partnerCounter[this.playerIndex]++;
+      this.lifeService.playersStats[this.playerIndex].life--;
+    }
+  }
+
   public decreasePoison() {
     if (this.optionalCountersService.poisonCounter[this.playerIndex] > 0) {
       this.audio.play();
@@ -58,11 +68,27 @@ export class OptionalCountersComponent {
     }
   }
 
+  public decreasePartner() {
+    if (this.optionalCountersService.partnerCounter[this.playerIndex] > 0) {
+      this.audio.play();
+      this.optionalCountersService.partnerCounter[this.playerIndex]--;
+      this.lifeService.playersStats[this.playerIndex].life++;
+    }
+  }
+
   public commanderCloseTimerStart() {
     if (this.commanderTimer)
       return;
     this.commanderTimer = setTimeout(() => {
       this.optionalCountersService.show(1, this.playerIndex);
+    }, 350);
+  }
+
+  public partnerCloseTimerStart() {
+    if (this.partnerTimer)
+      return;
+    this.partnerTimer = setTimeout(() => {
+      this.optionalCountersService.show(2, this.playerIndex);
     }, 350);
   }
 
@@ -77,6 +103,11 @@ export class OptionalCountersComponent {
   public commanderCloseTimerStop() {
     clearTimeout(this.commanderTimer);
     this.commanderTimer = null;
+  }
+
+  public partnerCloseTimerStop() {
+    clearTimeout(this.partnerTimer);
+    this.partnerTimer = null;
   }
 
   public poisonCloseTimerStop() {

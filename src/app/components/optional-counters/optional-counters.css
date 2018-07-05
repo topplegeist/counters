@@ -4,6 +4,7 @@
   align-items: stretch;
   display: flex;
   z-index: 1;
+  color: white;
 }
 
 div.container {
@@ -12,15 +13,38 @@ div.container {
   align-items: stretch;
 }
 
-div.container .poison, div.container .commander {
+div.container .poison, div.container .commander, div.container .partner {
   display: flex;
   flex: 1;
   align-items: stretch;
 }
 
-div.container .poison > div, div.container .commander > div {
+div.container .poison > div, div.container .commander > div, div.container .partner > div {
   display: flex;
   flex: 1;
+}
+
+div.container .poison .minus, div.container .commander .minus, div.container .partner .minus,
+div.container .poison .plus, div.container .commander .plus, div.container .partner .plus {
+  display: flex;
+  align-items: center;
+  font-size: 2em;
+}
+
+div.container .poison .minus, div.container .commander .minus, div.container .partner .minus {
+  justify-content: flex-end;
+}
+
+div.container .poison .plus, div.container .commander .plus, div.container .partner .plus {
+  justify-content: flex-start;
+}
+
+div.container .poison .minus > div, div.container .commander .minus > div, div.container .partner .minus > div {
+  margin-right: 5px;
+}
+
+div.container .poison .plus > div, div.container .commander .plus > div, div.container .partner .plus > div {
+  margin-left: 5px;
 }
 
 div.container .counter {
@@ -64,11 +88,16 @@ div.container .counter .number {
 }
 
 div.container .commander .counter .icon {
-  mask-size: 40% auto;
+  mask-size: 65% auto;
+  mask-image: url('../../../assets/icon-commander.svg');
+}
+
+div.container .partner .counter .icon {
+  mask-size: 65% auto;
   mask-image: url('../../../assets/icon-commander.svg');
 }
 
 div.container .poison .counter .icon {
-  mask-size: 70% auto;
+  mask-size: 100% auto;
   mask-image: url('../../../assets/icon-poison.svg');
 }
