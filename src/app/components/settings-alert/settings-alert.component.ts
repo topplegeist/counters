@@ -86,6 +86,29 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
     this.modelSubscription.unsubscribe();
   }
 
+  playerCommanderChange(playerIndex: number, event: boolean) {
+    console.log(event);
+    if (playerIndex == 0) {
+      this.model.player1Commander = event;
+      if (!event) this.model.player1Partner = event;
+    }
+    else if (playerIndex == 1) {
+      this.model.player2Commander = event;
+      if (!event) this.model.player2Partner = event;
+    }
+  }
+
+  playerPartnerChange(playerIndex: number, event: boolean) {
+    if (playerIndex == 0) {
+      this.model.player1Partner = event;
+      if (event) this.model.player1Commander = event;
+    }
+    else if (playerIndex == 1) {
+      this.model.player2Partner = event;
+      if (event) this.model.player2Commander = event;
+    }
+  }
+
   playerMonarchChange(playerIndex: number, event: boolean) {
     if (playerIndex == 0) {
       this.model.player1Monarch = event;

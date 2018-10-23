@@ -6,14 +6,18 @@
     <span>P2</span>
   </div>
   <div class="row">
-    <input type="checkbox" [(ngModel)]="model.player1Commander" name="player1Commander">
+    <input type="checkbox" [ngModel]="model.player1Commander" (ngModelChange)="playerCommanderChange(0, $event)"
+           name="player1Commander">
     <span>Commander</span>
-    <input type="checkbox" [(ngModel)]="model.player2Commander" name="player2Commander">
+    <input type="checkbox" [ngModel]="model.player2Commander" (ngModelChange)="playerCommanderChange(1, $event)"
+           name="player2Commander">
   </div>
   <div class="row">
-    <input type="checkbox" [(ngModel)]="model.player1Partner" name="player1Partner">
+    <input type="checkbox" [ngModel]="model.player1Partner" (ngModelChange)="playerPartnerChange(0, $event)"
+           name="player1Partner">
     <span>Partner</span>
-    <input type="checkbox" [(ngModel)]="model.player2Partner" name="player2Partner">
+    <input type="checkbox" [ngModel]="model.player2Partner" (ngModelChange)="playerPartnerChange(1, $event)"
+           name="player2Partner">
   </div>
   <div class="row">
     <input type="checkbox" [(ngModel)]="model.player1Poison" name="player1Poison">

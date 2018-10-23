@@ -88,8 +88,12 @@ div.container .counter .number {
 }
 
 div.container .commander .counter .icon {
-  mask-size: 65% auto;
+  mask-size: 40% auto;
   mask-image: url('../../../assets/icon-commander.svg');
+}
+
+div.container.three-instances .commander .counter .icon {
+  mask-size: 65% auto;
 }
 
 div.container .partner .counter .icon {
@@ -98,6 +102,10 @@ div.container .partner .counter .icon {
 }
 
 div.container .poison .counter .icon {
-  mask-size: 100% auto;
+  mask-size: 65% auto;
   mask-image: url('../../../assets/icon-poison.svg');
+}
+
+div.container.three-instances .poison .counter .icon {
+  mask-size: 100% auto;
 }

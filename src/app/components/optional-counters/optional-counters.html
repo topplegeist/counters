@@ -1,4 +1,4 @@
-<div class="container">
+<div [ngClass]="{'container': true, 'three-instances': optionalCountersService.partnerCounterMenu[playerIndex]}">
   <div class="poison" *ngIf="optionalCountersService.poisonCounterMenu[playerIndex]">
     <div class="minus" (click)="decreasePoison()">
       <div *ngIf="this.hudService.showIcons[playerIndex]">-</div>
@@ -31,8 +31,6 @@
       <div *ngIf="this.hudService.showIcons[playerIndex]">+</div>
     </div>
   </div>
-  <div class="partner" *ngIf="!optionalCountersService.partnerCounterMenu[playerIndex]"
-       (touchstart)="partnerCloseTimerStart()" (touchend)="partnerCloseTimerStop()"></div>
   <div class="commander" *ngIf="optionalCountersService.commanderCounterMenu[playerIndex]">
     <div class="minus" (click)="decreaseCommander()">
       <div *ngIf="this.hudService.showIcons[playerIndex]">-</div>
