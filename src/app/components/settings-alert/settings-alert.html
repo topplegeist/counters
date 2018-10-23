@@ -21,9 +21,11 @@
     <input type="checkbox" [(ngModel)]="model.player2Poison" name="player2Poison">
   </div>
   <div class="row">
-    <input type="checkbox" [(ngModel)]="model.player1Monarch" name="player1Monarch">
+    <input type="checkbox" [ngModel]="model.player1Monarch" (ngModelChange)="playerMonarchChange(0, $event)"
+           name="player1Monarch">
     <span>Monarch</span>
-    <input type="checkbox" [(ngModel)]="model.player2Monarch" name="player2Monarch">
+    <input type="checkbox" [ngModel]="model.player2Monarch" (ngModelChange)="playerMonarchChange(1, $event)"
+           name="player2Monarch">
   </div>
   <div class="row">
     <input type="checkbox" [(ngModel)]="model.player1CitysBlessing" name="player1CitysBlessing">

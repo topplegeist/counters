@@ -85,4 +85,15 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
     this.writeModelToService(this.startingModel);
     this.modelSubscription.unsubscribe();
   }
+
+  playerMonarchChange(playerIndex: number, event: boolean) {
+    if (playerIndex == 0) {
+      this.model.player1Monarch = event;
+      if (event) this.model.player2Monarch = !event;
+    }
+    else if (playerIndex == 1) {
+      this.model.player2Monarch = event;
+      if (event) this.model.player1Monarch = !event;
+    }
+  }
 }
