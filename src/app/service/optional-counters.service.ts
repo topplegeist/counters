@@ -22,6 +22,10 @@ export class OptionalCountersService {
       this.commanderCounterMenu[playerIndex] = !this.commanderCounterMenu[playerIndex];
     else if (menu == 2)
       this.partnerCounterMenu[playerIndex] = !this.partnerCounterMenu[playerIndex];
+    else if (menu == 3)
+      this.monarchToken = (this.monarchToken == playerIndex) ? -1 : playerIndex;
+    else if (menu == 4)
+      this.citiesBlessingToken[playerIndex] = !this.citiesBlessingToken[playerIndex];
   }
 
   public isActive(playerIndex: number): boolean {

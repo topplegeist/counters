@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="monarch" *ngIf="optionalCountersService.monarchToken == playerIndex">
+    <div class="counter" (touchstart)="monarchCloseTimerStart()" (touchend)="monarchCloseTimerStop()">
+      <div class="icon-container">
+        <div class="icon"></div>
+      </div>
+    </div>
+  </div>
+  <div class="monarch" *ngIf="optionalCountersService.monarchToken != playerIndex"
+       (touchstart)="monarchCloseTimerStart()" (touchend)="monarchCloseTimerStop()"></div>
+
+  <div class="citiesBlessing" *ngIf="optionalCountersService.citiesBlessingToken[playerIndex]">
+    <div class="counter" (touchstart)="citiesBlessingCloseTimerStart()" (touchend)="citiesBlessingCloseTimerStop()">
+      <div class="icon-container">
+        <div class="icon"></div>
+      </div>
+    </div>
+  </div>
+  <div class="citiesBlessing" *ngIf="!optionalCountersService.citiesBlessingToken[playerIndex]"
+       (touchstart)="citiesBlessingCloseTimerStart()" (touchend)="citiesBlessingCloseTimerStop()"></div>
+</div>

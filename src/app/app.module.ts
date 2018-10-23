@@ -29,6 +29,7 @@ import {OptionalCountersComponent} from "./components/optional-counters/optional
 import {SettingsAlertComponent} from "./components/settings-alert/settings-alert.component";
 import {FormsModule} from "@angular/forms";
 import {HUDService} from "./service/hud.service";
+import {TopIconsComponent} from "./components/top-icons/top-icons.component";
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -45,6 +46,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     AlertsDirective,
     AlertWrapperComponent,
     SplashscreenComponent,
+    TopIconsComponent,
     MainViewComponent,
     PlayerFieldComponent,
     LifeCounterComponent,

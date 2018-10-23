@@ -1,0 +1,60 @@
+:host {
+  flex: 2;
+  width: 100%;
+  align-items: stretch;
+  display: flex;
+  z-index: 1;
+  color: white;
+}
+
+div.container {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+}
+
+div.container .monarch, div.container .citiesBlessing {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+}
+
+div.container .monarch > div, div.container .citiesBlessing > div {
+  display: flex;
+  flex: 1;
+}
+
+div.container .counter {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+div.container .counter .icon-container {
+  display: flex;
+  flex: 1;
+}
+
+div.container .counter .icon {
+  mask-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+div.container .counter .icon-container {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(1px 1px 2px rgb(164, 114, 11));
+}
+
+div.container .monarch .counter .icon {
+  mask-size: 20% auto;
+  mask-position: 10% 100%;
+  mask-image: url('../../../assets/icon-monarch.svg');
+}
+
+div.container .citiesBlessing .counter .icon {
+  mask-size: 20% auto;
+  mask-position: 90% 100%;
+  mask-image: url('../../../assets/icon-city-blessing.svg');
+}
