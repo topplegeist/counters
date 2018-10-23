@@ -20,6 +20,6 @@ export class SeparatorLifeRangeMenuComponent {
   public changeLifeRange(lifeRange: number) {
     this.separatorMenuService.lifeRange = lifeRange;
     this.separatorMenuService.state = SeparatorMenuState.MAIN_MENU;
-    this.separatorMenuService.resetLives();
+    this.separatorMenuService.resetCounters();
   }
 }

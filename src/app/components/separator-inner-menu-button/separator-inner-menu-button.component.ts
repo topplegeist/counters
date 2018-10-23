@@ -41,7 +41,7 @@ export class SeparatorInnerMenuButtonComponent implements OnInit {
         this.separatorMenuService.state = SeparatorMenuState.LIFE_RANGE;
         break;
       case SeparatorMenuInnerButtonType.reset:
-        this.separatorMenuService.resetLives();
+        this.separatorMenuService.resetCounters();
         break;
     }
   }

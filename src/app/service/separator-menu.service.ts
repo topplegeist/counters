@@ -31,14 +31,20 @@ export class SeparatorMenuService {
     this.menuStateChanged.next(this._state);
   }
 
-  public resetLives() {
+  public resetCounters() {
     this.lifeService.playersStats = this.lifeService.playersStats
       .map((stats: PlayerStats) => {
         stats.life = this.lifeRange;
         return stats;
       });
-    this.optionalCountersService.commanderCounter = [0, 0];
+    this.optionalCountersService.poisonCounterMenu = [false, false];
+    this.optionalCountersService.commanderCounterMenu = [false, false];
+    this.optionalCountersService.partnerCounterMenu = [false, false];
+    this.optionalCountersService.citiesBlessingToken = [false, false];
+    this.optionalCountersService.monarchToken = -1;
     this.optionalCountersService.poisonCounter = [0, 0];
+    this.optionalCountersService.commanderCounter = [0, 0];
+    this.optionalCountersService.partnerCounter = [0, 0];
   }
 
   public activateDices() {
