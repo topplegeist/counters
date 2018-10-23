@@ -94,11 +94,12 @@ div.container .commander .counter .icon {
 
 div.container.three-instances .commander .counter .icon {
   mask-size: 65% auto;
+  mask-image: url('../../../assets/icon-commander-1.svg');
 }
 
 div.container .partner .counter .icon {
   mask-size: 65% auto;
-  mask-image: url('../../../assets/icon-commander.svg');
+  mask-image: url('../../../assets/icon-commander-2.svg');
 }
 
 div.container .poison .counter .icon {
