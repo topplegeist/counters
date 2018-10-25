@@ -48,13 +48,13 @@ div.container .counter .icon-container {
 }
 
 div.container .monarch .counter .icon {
-  mask-size: 20% auto;
-  mask-position: 10% 100%;
+  mask-size: 15% auto;
+  mask-position: 15% 50%;
   mask-image: url('../../../assets/icon-monarch.svg');
 }
 
 div.container .citiesBlessing .counter .icon {
-  mask-size: 20% auto;
-  mask-position: 90% 100%;
+  mask-size: 15% auto;
+  mask-position: 85% 50%;
   mask-image: url('../../../assets/icon-city-blessing.svg');
 }
