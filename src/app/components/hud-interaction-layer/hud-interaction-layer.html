@@ -1,6 +1,10 @@
 <div class="life container">
+  <div [ngClass]="{'life': true, 'fast': true, 'left': true, 'no-icon': !this.hudService.showIcons[playerIndex]}"
+       (click)="leftClickFast()"></div>
   <div [ngClass]="{'life': true, 'left': true, 'no-icon': !this.hudService.showIcons[playerIndex]}"
        (click)="leftClick()"></div>
   <div [ngClass]="{'life': true, 'right': true, 'no-icon': !this.hudService.showIcons[playerIndex]}"
        (click)="rightClick()"></div>
+  <div [ngClass]="{'life': true, 'fast': true, 'right': true, 'no-icon': !this.hudService.showIcons[playerIndex]}"
+       (click)="rightClickFast()"></div>
 </div>

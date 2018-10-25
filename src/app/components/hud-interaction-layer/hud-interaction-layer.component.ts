@@ -29,4 +29,16 @@ export class HudInteractionLayerComponent {
     let audio = new Audio('./assets/sounds/click.mp3');
     audio.play();
   }
+
+  public leftClickFast() {
+    this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life - 5;
+    let audio = new Audio('./assets/sounds/click.mp3');
+    audio.play();
+  }
+
+  public rightClickFast() {
+    this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life + 5;
+    let audio = new Audio('./assets/sounds/click.mp3');
+    audio.play();
+  }
 }
