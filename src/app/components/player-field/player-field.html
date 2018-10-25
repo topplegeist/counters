@@ -2,7 +2,7 @@
   <background-slider [reversed]="inverted" [initPanelNumber]="initPanelNumber"
                      [playerIndex]="playerIndex"></background-slider>
   <div [ngClass]="{'hud': true, 'optional-menu': optionalCountersService.isActive(playerIndex)}">
-    <top-icons [playerIndex]="playerIndex"></top-icons>
+    <top-icons [playerIndex]="playerIndex" *ngIf="!diceService.active"></top-icons>
     <life-counter *ngIf="!diceService.active" [playerIndex]="playerIndex"></life-counter>
     <optional-counters [playerIndex]="playerIndex"
                        *ngIf="optionalCountersService.isActive(playerIndex) && !diceService.active"></optional-counters>
