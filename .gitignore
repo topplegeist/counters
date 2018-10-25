@@ -114,8 +114,14 @@ typings/
 
 # dotenv environment variables file
 .env
-/cordova/www/
-/cordova/hooks/
-/cordova/platforms/
-/cordova/plugins/
+/cordova/*
+
+!/cordova/www/
+/cordova/www/*
 !/cordova/www/.gitkeep
+
+!/cordova/platforms/
+/cordova/platforms/*
+!/cordova/platforms/android/
+/cordova/platforms/android/*
+!/cordova/platforms/android/AndroidManifest.xml
