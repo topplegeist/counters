@@ -115,6 +115,8 @@ typings/
 # dotenv environment variables file
 .env
 /cordova/*
+!/cordova/config.xml
+!/cordova/package.json
 
 !/cordova/www/
 /cordova/www/*

@@ -16,6 +16,15 @@ export class AppComponent implements OnInit {
       () => {
         this.splashscreenActive = false;
         (<any>window).plugins.insomnia.keepAwake();
+
+        (<any>window).history.pushState("BackLock", null, "");
+
+        (<any>window).onpopstate = (evt) => {
+          if(!this.splashscreenActive) {
+            (<any>window).history.pushState("BackLock", null, "");
+          }
+          return;
+        }
       },
       3000
     );
