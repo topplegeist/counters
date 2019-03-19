@@ -37,7 +37,9 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
       this.optionalCountersService.citiesBlessingToken[0],
       this.optionalCountersService.citiesBlessingToken[1],
       this.hudService.showIcons[0],
-      this.hudService.showIcons[1]
+      this.hudService.showIcons[1],
+      this.hudService.activate5PointsButtons[0],
+      this.hudService.activate5PointsButtons[1]
     );
     this.startingModel = new SettingsAlertViewModel(
       this.optionalCountersService.commanderCounterMenu[0],
@@ -51,7 +53,9 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
       this.optionalCountersService.citiesBlessingToken[0],
       this.optionalCountersService.citiesBlessingToken[1],
       this.hudService.showIcons[0],
-      this.hudService.showIcons[1]
+      this.hudService.showIcons[1],
+      this.hudService.activate5PointsButtons[0],
+      this.hudService.activate5PointsButtons[1]
     );
   }
 
@@ -75,6 +79,8 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
     this.optionalCountersService.citiesBlessingToken[1] = model.player2CitysBlessing;
     this.hudService.showIcons[0] = model.player1ShowIcons;
     this.hudService.showIcons[1] = model.player2ShowIcons;
+    this.hudService.activate5PointsButtons[0] = model.player1Activate5PointsButtons;
+    this.hudService.activate5PointsButtons[1] = model.player2Activate5PointsButtons;
   }
 
   save() {
