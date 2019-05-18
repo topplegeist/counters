@@ -8,6 +8,6 @@
     ]
   },
   "dependencies": {
-    "cordova-android": "~6.2.2"
+    "cordova-android": "^8.0.0"
   }
 }
