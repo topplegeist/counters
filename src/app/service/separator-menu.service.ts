@@ -7,7 +7,7 @@ import {LifeService} from "./life.service";
 import {PlayerStats} from "../models/player-stats.model";
 import {SeparatorMenuState} from "../enums/separator-menu-state.enum";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import {DiceService} from "app/service/dice.service";
+import {DiceService} from "./dice.service";
 import {OptionalCountersService} from "./optional-counters.service";
 
 @Injectable()

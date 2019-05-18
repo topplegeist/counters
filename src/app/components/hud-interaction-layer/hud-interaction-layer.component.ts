@@ -14,31 +14,28 @@ import {HUDService} from "../../service/hud.service";
 export class HudInteractionLayerComponent {
   @Input()
   public playerIndex: number;
+  private audio = new Audio('./assets/sounds/click.mp3');
 
   constructor(private lifeService: LifeService, public hudService: HUDService) {
   }
 
   public leftClick() {
     this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life - 1;
-    let audio = new Audio('./assets/sounds/click.mp3');
-    audio.play();
+    this.audio.play();
   }
 
   public rightClick() {
     this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life + 1;
-    let audio = new Audio('./assets/sounds/click.mp3');
-    audio.play();
+    this.audio.play();
   }
 
   public leftClickFast() {
     this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life - 5;
-    let audio = new Audio('./assets/sounds/click.mp3');
-    audio.play();
+    this.audio.play();
   }
 
   public rightClickFast() {
     this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life + 5;
-    let audio = new Audio('./assets/sounds/click.mp3');
-    audio.play();
+    this.audio.play();
   }
 }
