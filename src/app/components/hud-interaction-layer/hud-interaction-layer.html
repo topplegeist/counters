@@ -2,9 +2,9 @@
   <div *ngIf="this.hudService.activate5PointsButtons[playerIndex]" 
        [ngClass]="{'life': true, 'fast': true, 'left': true, 'no-icon': !this.hudService.showIcons[playerIndex]}"
        (click)="leftClickFast()"></div>
-  <div [ngClass]="{'life': true, 'left': true, 'no-icon': !this.hudService.showIcons[playerIndex]}"
+  <div [ngClass]="{'life': true, 'left': true, 'no-icon': !this.hudService.showIcons[playerIndex], 'full-width': !this.hudService.activate5PointsButtons[playerIndex]}"
        (click)="leftClick()"></div>
-  <div [ngClass]="{'life': true, 'right': true, 'no-icon': !this.hudService.showIcons[playerIndex]}"
+  <div [ngClass]="{'life': true, 'right': true, 'no-icon': !this.hudService.showIcons[playerIndex], 'full-width': !this.hudService.activate5PointsButtons[playerIndex]}"
        (click)="rightClick()"></div>
   <div *ngIf="this.hudService.activate5PointsButtons[playerIndex]" 
        [ngClass]="{'life': true, 'fast': true, 'right': true, 'no-icon': !this.hudService.showIcons[playerIndex]}"
