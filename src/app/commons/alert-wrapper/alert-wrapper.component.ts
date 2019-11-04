@@ -14,10 +14,10 @@ import {ButtonData} from "../../models/button-data.model";
   styleUrls: ['./alert-wrapper.css']
 })
 export class AlertWrapperComponent {
-  @ViewChild(AlertsDirective)
+  @ViewChild(AlertsDirective, {static: false})
   private alertsHost: AlertsDirective;
 
-  @ViewChild('backgroundImage')
+  @ViewChild('backgroundImage', {static: false})
   private backgroundImage: ElementRef;
 
   public currentComponent: AlertComponent = null;

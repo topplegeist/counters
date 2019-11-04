@@ -20,7 +20,7 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
   public startingModel: SettingsAlertViewModel;
   private modelSubscription: Subscription;
 
-  @ViewChild('settingsForm') public settingsForm: NgForm;
+  @ViewChild('settingsForm', {static: true}) public settingsForm: NgForm;
 
   constructor(private optionalCountersService: OptionalCountersService,
               private hudService: HUDService) {
@@ -93,7 +93,6 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
   }
 
   playerCommanderChange(playerIndex: number, event: boolean) {
-    console.log(event);
     if (playerIndex == 0) {
       this.model.player1Commander = event;
       if (!event) this.model.player1Partner = event;
