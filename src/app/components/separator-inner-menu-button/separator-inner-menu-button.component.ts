@@ -34,6 +34,8 @@ export class SeparatorInnerMenuButtonComponent implements OnInit {
       case SeparatorMenuInnerButtonType.settings:
         this.alertsService.show(SettingsAlertComponent);
         break;
+      case SeparatorMenuInnerButtonType.history:
+        break;
       case SeparatorMenuInnerButtonType.dices:
         this.separatorMenuService.activateDices();
         break;

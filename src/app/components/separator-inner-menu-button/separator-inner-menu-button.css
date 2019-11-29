@@ -30,6 +30,10 @@ p > span.icon.lifeRange {
   mask-image: url('../../../assets/icon-life-range.svg');
 }
 
+p > span.icon.history {
+  mask-image: url('../../../assets/icon-mtg.svg'); /*TODO: add correct svg*/
+}
+
 p > span.icon.settings {
   mask-image: url('../../../assets/icon-settings.svg');
 }
