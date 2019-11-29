@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let entry of historyService.history">
+    <div>{{entry.playerIndex}},</div>
+    <div><span [class]='entry.type'></span></div>
+  </li>
+</ul>

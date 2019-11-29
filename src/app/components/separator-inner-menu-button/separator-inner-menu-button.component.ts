@@ -8,6 +8,7 @@ import {SeparatorMenuInnerButtonType} from "../../enums/separator-menu-inner-but
 import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
 import {AlertsService} from "../../service/alerts.service";
 import {SettingsAlertComponent} from "../settings-alert/settings-alert.component";
+import {HistoryComponent} from '../history/history.component';
 
 @Component({
   selector: 'separator-inner-menu-button',
@@ -35,6 +36,7 @@ export class SeparatorInnerMenuButtonComponent implements OnInit {
         this.alertsService.show(SettingsAlertComponent);
         break;
       case SeparatorMenuInnerButtonType.history:
+        this.alertsService.show(HistoryComponent);
         break;
       case SeparatorMenuInnerButtonType.dices:
         this.separatorMenuService.activateDices();
