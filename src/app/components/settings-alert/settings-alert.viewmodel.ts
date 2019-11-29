@@ -12,6 +12,8 @@ export class SettingsAlertViewModel {
     public player2CitysBlessing: boolean,
     public player1ShowIcons: boolean,
     public player2ShowIcons: boolean,
+    public player1Activate5PointsButtons: boolean,
+    public player2Activate5PointsButtons: boolean,
   ) {
   }
 }

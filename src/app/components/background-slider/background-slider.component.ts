@@ -13,10 +13,10 @@ import {OptionalCountersService} from "../../service/optional-counters.service";
   //TODO: waiting for angular2 variables animations
 })
 export class BackgroundSliderComponent extends HummerSliderComponent implements AfterViewInit {
-  @ViewChild("container")
+  @ViewChild("container", {static: false})
   public slidingContainer: ElementRef;
 
-  @ViewChild("carousel")
+  @ViewChild("carousel", {static: false})
   public carousel: ElementRef;
 
   public panels: ElementRef[];

@@ -20,7 +20,7 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
   public startingModel: SettingsAlertViewModel;
   private modelSubscription: Subscription;
 
-  @ViewChild('settingsForm') public settingsForm: NgForm;
+  @ViewChild('settingsForm', {static: true}) public settingsForm: NgForm;
 
   constructor(private optionalCountersService: OptionalCountersService,
               private hudService: HUDService) {
@@ -37,7 +37,9 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
       this.optionalCountersService.citiesBlessingToken[0],
       this.optionalCountersService.citiesBlessingToken[1],
       this.hudService.showIcons[0],
-      this.hudService.showIcons[1]
+      this.hudService.showIcons[1],
+      this.hudService.activate5PointsButtons[0],
+      this.hudService.activate5PointsButtons[1]
     );
     this.startingModel = new SettingsAlertViewModel(
       this.optionalCountersService.commanderCounterMenu[0],
@@ -51,7 +53,9 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
       this.optionalCountersService.citiesBlessingToken[0],
       this.optionalCountersService.citiesBlessingToken[1],
       this.hudService.showIcons[0],
-      this.hudService.showIcons[1]
+      this.hudService.showIcons[1],
+      this.hudService.activate5PointsButtons[0],
+      this.hudService.activate5PointsButtons[1]
     );
   }
 
@@ -75,6 +79,8 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
     this.optionalCountersService.citiesBlessingToken[1] = model.player2CitysBlessing;
     this.hudService.showIcons[0] = model.player1ShowIcons;
     this.hudService.showIcons[1] = model.player2ShowIcons;
+    this.hudService.activate5PointsButtons[0] = model.player1Activate5PointsButtons;
+    this.hudService.activate5PointsButtons[1] = model.player2Activate5PointsButtons;
   }
 
   save() {
@@ -87,7 +93,6 @@ export class SettingsAlertComponent extends AlertComponent implements OnInit {
   }
 
   playerCommanderChange(playerIndex: number, event: boolean) {
-    console.log(event);
     if (playerIndex == 0) {
       this.model.player1Commander = event;
       if (!event) this.model.player1Partner = event;

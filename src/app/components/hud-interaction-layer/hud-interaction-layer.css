@@ -24,21 +24,27 @@ div.life.left.fast, div.life.right.fast {
 }
 
 div.life.left.fast:not(.no-icon) {
-  background: url("assets/icon-plus-minus-5.svg") 50% calc(100% - 27vw + 6vw)/12vw no-repeat;
+  background: url("../../../assets/icon-plus-minus-5.svg") 50% calc(100% - 27vw + 6vw)/12vw no-repeat;
   background-size: 20%;
 }
 
 div.life.right.fast:not(.no-icon) {
-  background: url("assets/icon-plus-minus-5.svg") 50% calc(100% - 27vw + 6vw)/12vw no-repeat;
+  background: url("../../../assets/icon-plus-minus-5.svg") 50% calc(100% - 27vw + 6vw)/12vw no-repeat;
   background-size: 20%;
 }
 
 div.life.left:not(.no-icon):not(.fast) {
-  background: url("assets/icon-minus.svg") 0 calc(100% - 22vw + 6vw)/12vw no-repeat;
+  background: url("../../../assets/icon-minus.svg") 0 calc(100% - 22vw + 6vw)/12vw no-repeat;
+}
+div.life.left:not(.no-icon):not(.fast).full-width{
+  background-position-x: 15%;
 }
 
 div.life.right:not(.no-icon):not(.fast) {
-  background: url("assets/icon-plus.svg") 100% calc(100% - 22vw + 6vw)/12vw no-repeat;
+  background: url("../../../assets/icon-plus.svg") 100% calc(100% - 22vw + 6vw)/12vw no-repeat;
+}
+div.life.right:not(.no-icon):not(.fast).full-width{
+  background-position-x: 85%;
 }
 
 div.life img {
