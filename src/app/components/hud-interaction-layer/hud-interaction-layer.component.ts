@@ -26,29 +26,29 @@ export class HudInteractionLayerComponent {
 
   public leftClick() {
     this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life - 1;
-    this.addHistoryEntry('-1');
+    this.addHistoryEntry(-1);
     this.audio.play();
   }
 
   public rightClick() {
     this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life + 1;
-    this.addHistoryEntry('+1');
+    this.addHistoryEntry(1);
     this.audio.play();
   }
 
   public leftClickFast() {
     this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life - 5;
-    this.addHistoryEntry('-5');
+    this.addHistoryEntry(-5);
     this.audio.play();
   }
 
   public rightClickFast() {
     this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life + 5;
-    this.addHistoryEntry('+5');
+    this.addHistoryEntry(5);
     this.audio.play();
   }
 
-  private addHistoryEntry(note: string) {
-    this.historyService.addHistoryEntry(HistoryType.LIFE, this.playerIndex, note);
+  private addHistoryEntry(value: number) {
+    this.historyService.addHistoryEntry(HistoryType.LIFE, this.playerIndex, value);
   }
 }

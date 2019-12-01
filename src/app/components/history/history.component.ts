@@ -50,12 +50,12 @@ export class HistoryComponent extends AlertComponent implements OnInit {
     return [button1, button2];
   }
 
-  public getOperator(note: string) {
-    return note.substr(0, 1);
+  public getOperator(value: number) {
+    return value >= 0 ? '+' : '-';
   }
 
-  public getValue(note: string) {
-    return note.substr(1);
+  public getValue(value: number) {
+    return Math.abs(value);
   }
 
   public getTime(date: Date): string {
