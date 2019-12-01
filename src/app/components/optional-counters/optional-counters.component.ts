@@ -2,10 +2,12 @@
  * Created by Topplegeist Team on 13/04/2017.
  */
 
-import {Component, Input} from "@angular/core";
-import {OptionalCountersService} from "../../service/optional-counters.service";
-import {LifeService} from "../../service/life.service";
-import {HUDService} from "../../service/hud.service";
+import {Component, Input} from '@angular/core';
+import {OptionalCountersService} from '../../service/optional-counters.service';
+import {LifeService} from '../../service/life.service';
+import {HUDService} from '../../service/hud.service';
+import {HistoryService} from '../../service/history.service';
+import {HistoryType} from '../../enums/history-type.enum';
 
 @Component({
   selector: 'optional-counters',
@@ -26,6 +28,7 @@ export class OptionalCountersComponent {
 
   constructor(public optionalCountersService: OptionalCountersService,
               public lifeService: LifeService,
+              private historyService: HistoryService,
               public hudService: HUDService) {
     this.audio = new Audio('./assets/sounds/click.mp3');
   }
@@ -34,6 +37,7 @@ export class OptionalCountersComponent {
     if (this.optionalCountersService.poisonCounter[this.playerIndex] < 100) {
       this.audio.play();
       this.optionalCountersService.poisonCounter[this.playerIndex]++;
+      this.addHistoryEntry(HistoryType.POISON, 1);
     }
   }
 
@@ -42,6 +46,8 @@ export class OptionalCountersComponent {
       this.audio.play();
       this.optionalCountersService.commanderCounter[this.playerIndex]++;
       this.lifeService.playersStats[this.playerIndex].life--;
+      this.addHistoryEntry(HistoryType.COMMANDER, 1);
+      this.addHistoryEntry(HistoryType.LIFE, -1);
     }
   }
 
@@ -50,6 +56,8 @@ export class OptionalCountersComponent {
       this.audio.play();
       this.optionalCountersService.partnerCounter[this.playerIndex]++;
       this.lifeService.playersStats[this.playerIndex].life--;
+      this.addHistoryEntry(HistoryType.PARTNER, 1);
+      this.addHistoryEntry(HistoryType.LIFE, -1);
     }
   }
 
@@ -57,6 +65,7 @@ export class OptionalCountersComponent {
     if (this.optionalCountersService.poisonCounter[this.playerIndex] > 0) {
       this.audio.play();
       this.optionalCountersService.poisonCounter[this.playerIndex]--;
+      this.addHistoryEntry(HistoryType.POISON, -1);
     }
   }
 
@@ -65,6 +74,8 @@ export class OptionalCountersComponent {
       this.audio.play();
       this.optionalCountersService.commanderCounter[this.playerIndex]--;
       this.lifeService.playersStats[this.playerIndex].life++;
+      this.addHistoryEntry(HistoryType.COMMANDER, -1);
+      this.addHistoryEntry(HistoryType.LIFE, +1);
     }
   }
 
@@ -73,6 +84,8 @@ export class OptionalCountersComponent {
       this.audio.play();
       this.optionalCountersService.partnerCounter[this.playerIndex]--;
       this.lifeService.playersStats[this.playerIndex].life++;
+      this.addHistoryEntry(HistoryType.PARTNER, -1);
+      this.addHistoryEntry(HistoryType.LIFE, +1);
     }
   }
 
@@ -113,5 +126,9 @@ export class OptionalCountersComponent {
   public poisonCloseTimerStop() {
     clearTimeout(this.poisonTimer);
     this.poisonTimer = null;
+  }
+
+  private addHistoryEntry(type: HistoryType, value: number) {
+    this.historyService.addHistoryEntry(type, this.playerIndex, value);
   }
 }
