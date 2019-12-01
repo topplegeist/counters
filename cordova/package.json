@@ -1,13 +1,24 @@
 {
   "name": "net.topplegeisteam.counters",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "displayName": "Counters",
   "cordova": {
     "platforms": [
       "android"
-    ]
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-battery-status": {},
+      "https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git": {},
+      "cordova-plugin-insomnia": {}
+    }
   },
   "dependencies": {
-    "cordova-android": "^8.1.0"
+    "cordova-android": "^8.1.0",
+    "cordova-plugin-insomnia": "git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git"
+  },
+  "devDependencies": {
+    "cordova-plugin-whitelist": "1",
+    "cordova-plugin-battery-status": "1"
   }
 }
