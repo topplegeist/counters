@@ -42,4 +42,8 @@ export class AlertWrapperComponent {
     this.alertsHost.clear();
     this.buttons = [];
   }
+
+  public hostIsEmpty(): boolean {
+    return this.alertsHost.isEmpty()
+  }
 }
