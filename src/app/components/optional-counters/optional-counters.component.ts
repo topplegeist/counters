@@ -47,7 +47,6 @@ export class OptionalCountersComponent {
       this.optionalCountersService.commanderCounter[this.playerIndex]++;
       this.lifeService.playersStats[this.playerIndex].life--;
       this.addHistoryEntry(HistoryType.COMMANDER, 1);
-      this.addHistoryEntry(HistoryType.LIFE, -1);
     }
   }
 
@@ -57,7 +56,6 @@ export class OptionalCountersComponent {
       this.optionalCountersService.partnerCounter[this.playerIndex]++;
       this.lifeService.playersStats[this.playerIndex].life--;
       this.addHistoryEntry(HistoryType.PARTNER, 1);
-      this.addHistoryEntry(HistoryType.LIFE, -1);
     }
   }
 
@@ -75,7 +73,6 @@ export class OptionalCountersComponent {
       this.optionalCountersService.commanderCounter[this.playerIndex]--;
       this.lifeService.playersStats[this.playerIndex].life++;
       this.addHistoryEntry(HistoryType.COMMANDER, -1);
-      this.addHistoryEntry(HistoryType.LIFE, +1);
     }
   }
 
@@ -85,7 +82,6 @@ export class OptionalCountersComponent {
       this.optionalCountersService.partnerCounter[this.playerIndex]--;
       this.lifeService.playersStats[this.playerIndex].life++;
       this.addHistoryEntry(HistoryType.PARTNER, -1);
-      this.addHistoryEntry(HistoryType.LIFE, +1);
     }
   }
 
