@@ -1,16 +1,70 @@
+@brand: #d3202a;
+
+ul {
+  max-height: 70vw;
+  overflow: scroll;
+}
+
 li {
   font-size: 5vw;
   display: flex;
   flex-direction: row;
 }
 
+li.entryStats {
+  justify-content: space-between;
+}
+
+li.entryStats > * {
+  flex: 1;
+}
+
+div.playerContainer {
+  display: flex;
+}
+
+div.iconValueContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+div.iconValueContainer > * {
+  flex: 1;
+}
+
+span.PLAYER {
+  color: @brand;
+  text-align: start;
+}
+
+span.PLAYER1:extend(span.PLAYER) {
+  color: @brand;
+}
+
+span.PLAYER2:extend(span.PLAYER) {
+  color: darken(@brand, 30%);
+}
+
+span.entryIndex {
+  width: 40%;
+}
+
+span.entryValue {
+  text-align: start;
+}
+
+span.entryTime {
+  text-align: end;
+}
+
 span.ICON {
   background-color: black;
   mask-size: auto 100%;
   mask-repeat: no-repeat;
-  mask-position: 50% 50%;
-  min-width: 5vw;
-  min-height: 5vw;
+  mask-position: 100% 50%;
+  width: 5vw;
+  height: 5vw;
   display: block;
 }
 

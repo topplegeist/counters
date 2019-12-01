@@ -17,16 +17,18 @@ export class HistoryService {
   public history: HistoryEntry[] = [];
 
   constructor() {
-    this.addHistoryEntry(HistoryType.LIFE, 1, "note 1"); // TODO: remove dummy content
-    this.addHistoryEntry(HistoryType.POISON, 2, "note 2");
   }
 
-  public addHistoryEntry(type: HistoryType, playerIndex: number, message: string) {
+  public addHistoryEntry(type: HistoryType, playerIndex: number, note: string) {
     this.history.push({
       type: type,
       date: new Date(),
       playerIndex: playerIndex,
-      note: message
+      note: note
     });
+  }
+
+  clear() {
+    this.history = [];
   }
 }

@@ -1,6 +1,16 @@
-<ul>
-  <li *ngFor="let entry of historyService.history">
-    <div>{{entry.playerIndex}},</div>
-    <div><span [class]='entry.type'></span></div>
+<h1>History</h1>
+<ul #entryList>
+  <li *ngIf="historyService.history.length == 0">No action performed</li>
+  <li class="entryStats" *ngFor="let entry of historyService.history; let index = index">
+    <div class="playerContainer">
+      <span class="entryIndex">{{index+1}}. </span>
+      <span [class]='"PLAYER"+(entry.playerIndex+1)'>P{{entry.playerIndex+1}}</span>
+    </div>
+    <div class="iconValueContainer">
+      <span [class]='entry.type'></span>
+      <span>{{getOperator(entry.note)}}</span>
+      <span class="entryValue">{{getValue(entry.note)}}</span>
+    </div>
+    <span class="entryTime">{{getTime(entry.date)}}</span>
   </li>
 </ul>
