@@ -17,6 +17,7 @@ export class HistoryComponent extends AlertComponent implements OnInit {
 
   constructor(public historyService: HistoryService) {
     super();
+    historyService.forceUpdate();
   }
 
   ngOnInit(): void {

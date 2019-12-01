@@ -15,10 +15,7 @@ export class HistoryTimer extends Timer {
 
   constructor(historyCallback: Function, interval: number = 1000) {
     super(() => {
-      for(let cacheEntry in this.cacheEntries) {
-        if (this.cacheEntries[cacheEntry]) this.historyCallback(this.cacheEntries[cacheEntry]);
-      }
-      this.cacheEntries = [];
+      this.forceUpdate();
     }, interval);
     this.historyCallback = historyCallback;
   }
@@ -37,5 +34,12 @@ export class HistoryTimer extends Timer {
       this.cacheEntries[entry.type].data += entry.data;
       if (this.cacheEntries[entry.type].data == 0) this.cacheEntries = null;
     }
+  }
+
+  public forceUpdate() {
+    for(let cacheEntry in this.cacheEntries) {
+      if (this.cacheEntries[cacheEntry]) this.historyCallback(this.cacheEntries[cacheEntry]);
+    }
+    this.cacheEntries = [];
   }
 }

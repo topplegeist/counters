@@ -39,5 +39,9 @@ export class HistoryService {
 
   historyCallback = (newEntry: HistoryEntry) => {
     this.history.push(newEntry);
+  };
+
+  forceUpdate() {
+    this.timers.forEach(timer => timer.forceUpdate());
   }
 }
