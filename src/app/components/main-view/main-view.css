@@ -1,5 +1,22 @@
+@keyframes blur-on {
+  from {filter: none;}
+  to {filter: blur(2px);}
+}
+
+@keyframes blur-off {
+  from {filter: blur(2px);}
+  to {filter: none;}
+}
+
 div.container {
   height: 100%;
   display: flex;
   flex-direction: column;
+  animation-duration: 250ms;
+  animation-name: blur-off;
+  animation-fill-mode: forwards;
+}
+
+:host.faded > div.container {
+  animation-name: blur-on;
 }

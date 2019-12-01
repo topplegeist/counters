@@ -1,3 +1,3 @@
 <splashscreen *ngIf="splashscreenActive"></splashscreen>
-<main-view *ngIf="!splashscreenActive"></main-view>
-<alert-wrapper></alert-wrapper>
+<main-view *ngIf="!splashscreenActive" [ngClass]="{'faded': !alertWrapper.hostIsEmpty()}"></main-view>
+<alert-wrapper #alertWrapper></alert-wrapper>
