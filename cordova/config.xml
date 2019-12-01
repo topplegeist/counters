@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="net.topplegeisteam.counters" version="1.1.1" xmlns="http://www.w3.org/ns/widgets">
+<widget id="net.topplegeisteam.counters" version="1.2.0" xmlns="http://www.w3.org/ns/widgets">
     <name>Counters</name>
     <description>
         Life counter application for Magic The Gathering TM ideal for 1vs1 games.
@@ -20,6 +20,8 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <preference name="android-minSdkVersion" value="19" />
+        <preference name="android-targetSdkVersion" value="28" />
         <icon density="mdpi" src="res/mipmap-mdpi/counters_ic.png" />
         <icon density="hdpi" src="res/mipmap-hdpi/counters_ic.png" />
         <icon density="xhdpi" src="res/mipmap-xhdpi/counters_ic.png" />
@@ -32,5 +34,4 @@
     </platform>
     <preference name="Fullscreen" value="true" />
     <preference name="Orientation" value="portrait" />
-    <engine name="android" spec="^8.1.0" />
 </widget>
