@@ -1,16 +1,28 @@
 <h1>History</h1>
 <ul #entryList>
   <li *ngIf="historyService.history.length == 0">No action performed</li>
-  <li class="entryStats" *ngFor="let entry of historyService.history; let index = index">
-    <div class="playerContainer">
-      <span class="entryIndex">{{index+1}}. </span>
-      <span [class]='"PLAYER"+(entry.playerIndex+1)'>P{{entry.playerIndex+1}}</span>
+  <li class="listItem" *ngFor="let entry of historyService.history; let index = index">
+    <div class="entryStats" *ngIf="entry.playerIndex != null">
+      <div class="playerContainer">
+        <span [class]='"PLAYER"+(entry.playerIndex+1)'>P{{entry.playerIndex+1}}</span>
+      </div>
+      <div class="iconValueContainer">
+        <span [class]='entry.type'></span>
+        <span>{{getOperator(entry.data)}}</span>
+        <span class="entryValue">{{getValue(entry.data)}}</span>
+      </div>
+      <span class="entryTime">{{getTime(entry.date)}}</span>
     </div>
-    <div class="iconValueContainer">
-      <span [class]='entry.type'></span>
-      <span>{{getOperator(entry.data)}}</span>
-      <span class="entryValue">{{getValue(entry.data)}}</span>
+    <div class="entryDice" *ngIf="entry.type == historyType.DICE">
+      <div class="iconValueContainer">
+        <span [class]='entry.type'></span>
+      </div>
+      <div class="diceResult">
+      <span class="diceNote">{{getDiceNote(entry.data)}}</span>
+      <span class="separator"></span>
+      <span class="diceValue">{{getDiceResult(entry.data)}}</span>
+      </div>
+      <span class="entryTime">{{getTime(entry.date)}}</span>
     </div>
-    <span class="entryTime">{{getTime(entry.date)}}</span>
   </li>
 </ul>

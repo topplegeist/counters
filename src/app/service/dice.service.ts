@@ -2,9 +2,11 @@
  * Created by Topplegeist Team on 13/04/2017.
  */
 
-import {Injectable} from "@angular/core";
-import {Dice} from "../models/dice.model";
-import {DiceWinnerState} from "../enums/dice-winner-state.enum";
+import {Injectable} from '@angular/core';
+import {Dice} from '../models/dice.model';
+import {DiceWinnerState} from '../enums/dice-winner-state.enum';
+import {DiceRoll, HistoryService} from './history.service';
+import {HistoryType} from '../enums/history-type.enum';
 
 @Injectable()
 export class DiceService {
@@ -13,7 +15,7 @@ export class DiceService {
   private _launched: boolean = false;
   private audio;
 
-  constructor() {
+  constructor(private historyService: HistoryService) {
     this.dices = [new Dice(), new Dice()];
     this.audio = new Audio('./assets/sounds/click.mp3');
   }
@@ -61,6 +63,15 @@ export class DiceService {
         this.dices[0].winnerState = DiceWinnerState.TIE;
         this.dices[1].winnerState = DiceWinnerState.TIE;
       }
+      let winnerIndex: number = this.dices[0].value != this.dices[1].value ?
+        (this.dices[0].value > this.dices[1].value ? 0 : 1) :
+        null;
+      let diceRoll: DiceRoll = {
+        p1value: this.dices[0].value,
+        p2value: this.dices[1].value,
+        winnerIndex: winnerIndex
+      };
+      this.historyService.addDiceRoll(diceRoll);
     });
   }
 

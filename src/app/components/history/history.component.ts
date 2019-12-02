@@ -4,23 +4,22 @@
 
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AlertComponent} from '../../commons/alert.component';
-import {HistoryService} from '../../service/history.service';
+import {DiceRoll, HistoryService} from '../../service/history.service';
 import {ButtonData} from '../../models/button-data.model';
+import {HistoryType} from '../../enums/history-type.enum';
 
 @Component({
   selector: 'history',
   templateUrl: 'history.component.html',
   styleUrls: ['history.component.less']
 })
-export class HistoryComponent extends AlertComponent implements OnInit {
+export class HistoryComponent extends AlertComponent {
   @ViewChild('entryList', {static: true}) private entryList: ElementRef;
+  historyType = HistoryType;
 
   constructor(public historyService: HistoryService) {
     super();
     historyService.forceUpdate();
-  }
-
-  ngOnInit(): void {
   }
 
   save() {
@@ -51,21 +50,25 @@ export class HistoryComponent extends AlertComponent implements OnInit {
     return [button1, button2];
   }
 
-  public getOperator(value: number) {
+  public getOperator(value: number): string {
     return value >= 0 ? '+' : '-';
   }
 
-  public getValue(value: number) {
+  public getValue(value: number): number {
     return Math.abs(value);
   }
 
   public getTime(date: Date): string {
-    // TODO: scroll hack; find a better way to scroll the list to the bottom.
-    this.scrollToBottom();
     return date.toLocaleTimeString(undefined, {hour12: false});
   }
 
-  private scrollToBottom() {
-    this.entryList.nativeElement.scrollTop = this.entryList.nativeElement.scrollHeight;
+  public getDiceNote(diceRoll: DiceRoll): string {
+    return diceRoll.p1value == diceRoll.p2value ?
+      ('drew:') :
+      ('P' + (diceRoll.winnerIndex + 1) + ' won:');
+  }
+
+  public getDiceResult(diceRoll: DiceRoll): string {
+    return diceRoll.p1value + ' - ' + diceRoll.p2value;
   }
 }

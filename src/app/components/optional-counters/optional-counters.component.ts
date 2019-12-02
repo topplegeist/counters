@@ -125,6 +125,6 @@ export class OptionalCountersComponent {
   }
 
   private addHistoryEntry(type: HistoryType, value: number) {
-    this.historyService.addHistoryEntry(type, this.playerIndex, value);
+    this.historyService.addOperatorEntry(type, this.playerIndex, value);
   }
 }

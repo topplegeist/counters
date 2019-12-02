@@ -2,6 +2,7 @@
 
 ul {
   max-height: 70vw;
+  margin-bottom: 2vw;
   overflow: scroll;
 }
 
@@ -11,12 +12,30 @@ li {
   flex-direction: row;
 }
 
-li.entryStats {
+li.listItem > * {
+  flex: 1;
+}
+
+div.entryRow {
+  display: flex;
+  flex-direction: row;
+  font-size: 5vw;
+}
+
+div.entryStats:extend(div.entryRow) {
   justify-content: space-between;
 }
 
-li.entryStats > * {
+div.entryStats > * {
   flex: 1;
+}
+
+div.entryDice:extend(div.entryRow) {
+  justify-content: space-between;
+}
+
+div.entryDice > div.iconValueContainer {
+  width: 10%;
 }
 
 div.playerContainer {
@@ -31,6 +50,12 @@ div.iconValueContainer {
 
 div.iconValueContainer > * {
   flex: 1;
+}
+
+div.diceResult {
+  flex: 1;
+  display: flex;
+  justify-content: start;
 }
 
 span.PLAYER {
@@ -58,37 +83,58 @@ span.entryTime {
   text-align: end;
 }
 
+span.diceNote {
+  flex: 7;
+  text-align: end;
+}
+
+span.separator {
+  flex: 1;
+}
+
+span.diceValue {
+  flex: 7;
+  text-align: start;
+}
+
 span.ICON {
   background-color: black;
   mask-size: auto 100%;
   mask-repeat: no-repeat;
-  mask-position: 100% 50%;
   width: 5vw;
   height: 5vw;
   display: block;
 }
 
-span.LIFE:extend(span.ICON) {
+span.DICE:extend(span.ICON) {
+  mask-image: url('../../../assets/icon-dices.svg');
+}
+
+span.OPERATOR:extend(span.ICON) {
+  mask-position: 100% 50%;
+}
+
+span.LIFE:extend(span.OPERATOR) {
   background-color: red;
   mask-image: url('../../../assets/icon-life-range.svg');
 }
 
-span.COMMANDER:extend(span.ICON) {
+span.COMMANDER:extend(span.OPERATOR) {
   mask-image: url('../../../assets/icon-commander-1.svg');
 }
 
-span.PARTNER:extend(span.ICON) {
+span.PARTNER:extend(span.OPERATOR) {
   mask-image: url('../../../assets/icon-commander-2.svg');
 }
 
-span.POISON:extend(span.ICON) {
+span.POISON:extend(span.OPERATOR) {
   mask-image: url('../../../assets/icon-poison.svg');
 }
 
-span.MONARCH:extend(span.ICON) {
+span.MONARCH:extend(span.OPERATOR) {
   mask-image: url('../../../assets/icon-monarch.svg');
 }
 
-span.CITY_BLESSING:extend(span.ICON) {
+span.CITY_BLESSING:extend(span.OPERATOR) {
   mask-image: url('../../../assets/icon-city-blessing.svg');
 }

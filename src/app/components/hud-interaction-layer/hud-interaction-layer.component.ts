@@ -49,6 +49,6 @@ export class HudInteractionLayerComponent {
   }
 
   private addHistoryEntry(value: number) {
-    this.historyService.addHistoryEntry(HistoryType.LIFE, this.playerIndex, value);
+    this.historyService.addOperatorEntry(HistoryType.LIFE, this.playerIndex, value);
   }
 }
