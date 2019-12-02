@@ -37,6 +37,7 @@ export class HistoryTimer extends Timer {
   }
 
   public forceUpdate() {
+    this.stop();
     for(let cacheEntry in this.cacheEntries) {
       if (this.cacheEntries[cacheEntry]) this.historyCallback(this.cacheEntries[cacheEntry]);
     }
