@@ -6,7 +6,7 @@ import {Component, Input} from '@angular/core';
 import {OptionalCountersService} from '../../service/optional-counters.service';
 import {LifeService} from '../../service/life.service';
 import {HUDService} from '../../service/hud.service';
-import {HistoryService} from '../../service/history.service';
+import {HistoryService, Operation} from '../../service/history.service';
 import {HistoryType} from '../../enums/history-type.enum';
 
 @Component({
@@ -36,52 +36,52 @@ export class OptionalCountersComponent {
   public increasePoison() {
     if (this.optionalCountersService.poisonCounter[this.playerIndex] < 100) {
       this.audio.play();
-      this.optionalCountersService.poisonCounter[this.playerIndex]++;
       this.addHistoryEntry(HistoryType.POISON, 1);
+      this.optionalCountersService.poisonCounter[this.playerIndex]++;
     }
   }
 
   public increaseCommander() {
     if (this.optionalCountersService.commanderCounter[this.playerIndex] < 100) {
       this.audio.play();
+      this.addHistoryEntry(HistoryType.COMMANDER, 1);
       this.optionalCountersService.commanderCounter[this.playerIndex]++;
       this.lifeService.playersStats[this.playerIndex].life--;
-      this.addHistoryEntry(HistoryType.COMMANDER, 1);
     }
   }
 
   public increasePartner() {
     if (this.optionalCountersService.partnerCounter[this.playerIndex] < 100) {
       this.audio.play();
+      this.addHistoryEntry(HistoryType.PARTNER, 1);
       this.optionalCountersService.partnerCounter[this.playerIndex]++;
       this.lifeService.playersStats[this.playerIndex].life--;
-      this.addHistoryEntry(HistoryType.PARTNER, 1);
     }
   }
 
   public decreasePoison() {
     if (this.optionalCountersService.poisonCounter[this.playerIndex] > 0) {
       this.audio.play();
-      this.optionalCountersService.poisonCounter[this.playerIndex]--;
       this.addHistoryEntry(HistoryType.POISON, -1);
+      this.optionalCountersService.poisonCounter[this.playerIndex]--;
     }
   }
 
   public decreaseCommander() {
     if (this.optionalCountersService.commanderCounter[this.playerIndex] > 0) {
       this.audio.play();
+      this.addHistoryEntry(HistoryType.COMMANDER, -1);
       this.optionalCountersService.commanderCounter[this.playerIndex]--;
       this.lifeService.playersStats[this.playerIndex].life++;
-      this.addHistoryEntry(HistoryType.COMMANDER, -1);
     }
   }
 
   public decreasePartner() {
     if (this.optionalCountersService.partnerCounter[this.playerIndex] > 0) {
       this.audio.play();
+      this.addHistoryEntry(HistoryType.PARTNER, -1);
       this.optionalCountersService.partnerCounter[this.playerIndex]--;
       this.lifeService.playersStats[this.playerIndex].life++;
-      this.addHistoryEntry(HistoryType.PARTNER, -1);
     }
   }
 
@@ -125,6 +125,14 @@ export class OptionalCountersComponent {
   }
 
   private addHistoryEntry(type: HistoryType, value: number) {
-    this.historyService.addOperatorEntry(type, this.playerIndex, value);
+    let lifeBefore: number = type != HistoryType.POISON ?
+      this.lifeService.playersStats[this.playerIndex].life :
+      null;
+    let operation: Operation = {
+      playerIndex: this.playerIndex,
+      lifeBefore: lifeBefore,
+      value: value
+    };
+    this.historyService.addOperation(type, operation);
   }
 }

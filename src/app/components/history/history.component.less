@@ -1,5 +1,10 @@
 @brand: #d3202a;
 
+:host, :host button {
+  font-family: BelerenSmallCapsMono, serif;
+  font-size: 1.4em;
+}
+
 ul {
   max-height: 70vw;
   margin-bottom: 2vw;
@@ -12,6 +17,33 @@ li {
   flex-direction: row;
 }
 
+.columnSmall {
+  flex: 10;
+  align-self: center;
+}
+
+.columnMid {
+  flex: 25;
+  align-self: center;
+}
+
+.columnBig {
+  flex: 36;
+  align-self: center;
+}
+
+.textStart {
+  text-align: start;
+}
+
+.textEnd {
+  text-align: end;
+}
+
+.separator {
+  flex: 10;
+}
+
 li.listItem > * {
   flex: 1;
 }
@@ -19,43 +51,42 @@ li.listItem > * {
 div.entryRow {
   display: flex;
   flex-direction: row;
+  align-items: center;
   font-size: 5vw;
+  height: 7vw;
 }
+
+div.entryRow > * {
+  height: 7vw;
+}
+
 
 div.entryStats:extend(div.entryRow) {
   justify-content: space-between;
-}
-
-div.entryStats > * {
-  flex: 1;
 }
 
 div.entryDice:extend(div.entryRow) {
   justify-content: space-between;
 }
 
-div.entryDice > div.iconValueContainer {
-  width: 10%;
-}
-
-div.playerContainer {
+div.lifeChanges:extend(.columnBig) {
   display: flex;
-}
-
-div.iconValueContainer {
-  display: flex;
-  flex-direction: row;
   align-items: center;
+  text-align: center;
 }
 
-div.iconValueContainer > * {
+div.lifeChanges > * {
   flex: 1;
+  text-align: center;
 }
 
-div.diceResult {
-  flex: 1;
+div.operationResult:extend(.columnMid) {
   display: flex;
-  justify-content: start;
+  text-align: center;
+}
+
+div.operationResult > * {
+  flex: 1;
 }
 
 span.PLAYER {
@@ -71,32 +102,6 @@ span.PLAYER2:extend(span.PLAYER) {
   color: darken(@brand, 30%);
 }
 
-span.entryIndex {
-  width: 40%;
-}
-
-span.entryValue {
-  text-align: start;
-}
-
-span.entryTime {
-  text-align: end;
-}
-
-span.diceNote {
-  flex: 7;
-  text-align: end;
-}
-
-span.separator {
-  flex: 1;
-}
-
-span.diceValue {
-  flex: 7;
-  text-align: start;
-}
-
 span.ICON {
   background-color: black;
   mask-size: auto 100%;
@@ -104,6 +109,11 @@ span.ICON {
   width: 5vw;
   height: 5vw;
   display: block;
+}
+
+span.ARROW_RIGHT:extend(span.ICON) {
+  mask-position: 50% 50%;
+  mask-image: url('../../../assets/icon-arrow-right.svg');
 }
 
 span.DICE:extend(span.ICON) {

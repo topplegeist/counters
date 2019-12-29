@@ -5,7 +5,7 @@
 import {Component, Input} from '@angular/core';
 import {LifeService} from '../../service/life.service';
 import {HUDService} from '../../service/hud.service';
-import {HistoryService} from '../../service/history.service';
+import {DiceRoll, HistoryService, Operation} from '../../service/history.service';
 import {HistoryType} from '../../enums/history-type.enum';
 
 @Component({
@@ -25,30 +25,35 @@ export class HudInteractionLayerComponent {
   }
 
   public leftClick() {
-    this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life - 1;
     this.addHistoryEntry(-1);
+    this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life - 1;
     this.audio.play();
   }
 
   public rightClick() {
-    this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life + 1;
     this.addHistoryEntry(1);
+    this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life + 1;
     this.audio.play();
   }
 
   public leftClickFast() {
-    this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life - 5;
     this.addHistoryEntry(-5);
+    this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life - 5;
     this.audio.play();
   }
 
   public rightClickFast() {
-    this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life + 5;
     this.addHistoryEntry(5);
+    this.lifeService.playersStats[this.playerIndex].life = this.lifeService.playersStats[this.playerIndex].life + 5;
     this.audio.play();
   }
 
   private addHistoryEntry(value: number) {
-    this.historyService.addOperatorEntry(HistoryType.LIFE, this.playerIndex, value);
+    let operation: Operation = {
+      playerIndex: this.playerIndex,
+      lifeBefore: this.lifeService.playersStats[this.playerIndex].life,
+      value: value
+    };
+    this.historyService.addOperation(HistoryType.LIFE, operation);
   }
 }

@@ -1,28 +1,40 @@
 <h1>History</h1>
 <ul #entryList>
   <li *ngIf="historyService.history.length == 0">No action performed</li>
-  <li class="listItem" *ngFor="let entry of historyService.history; let index = index">
-    <div class="entryStats" *ngIf="entry.playerIndex != null">
-      <div class="playerContainer">
-        <span [class]='"PLAYER"+(entry.playerIndex+1)'>P{{entry.playerIndex+1}}</span>
-      </div>
-      <div class="iconValueContainer">
-        <span [class]='entry.type'></span>
-        <span>{{getOperator(entry.data)}}</span>
-        <span class="entryValue">{{getValue(entry.data)}}</span>
-      </div>
-      <span class="entryTime">{{getTime(entry.date)}}</span>
-    </div>
-    <div class="entryDice" *ngIf="entry.type == historyType.DICE">
-      <div class="iconValueContainer">
-        <span [class]='entry.type'></span>
-      </div>
-      <div class="diceResult">
-      <span class="diceNote">{{getDiceNote(entry.data)}}</span>
+  <li class="listItem" *ngFor="let entry of historyService.history; let index = index" [ngSwitch]="entry.type">
+
+    <div class="entryDice" *ngSwitchCase="historyType.DICE">
+      <span class="columnSmall {{entry.type}}"></span>
       <span class="separator"></span>
-      <span class="diceValue">{{getDiceResult(entry.data)}}</span>
+      <span class="columnBig">{{getDiceNote(entry.data)}}</span>
+      <span class="separator"></span>
+      <div class="operationResult">
+        <span>{{entry.data.p1value}}</span>
+        <span>-</span>
+        <span>{{entry.data.p2value}}</span>
       </div>
-      <span class="entryTime">{{getTime(entry.date)}}</span>
+      <span class="separator"></span>
+      <span class="columnBig">{{getTime(entry.date)}}</span>
     </div>
+
+    <div class="entryStats" *ngSwitchDefault>
+      <span class="columnSmall {{'PLAYER'+(entry.data.playerIndex+1)}}">P{{entry.data.playerIndex+1}}</span>
+      <span class="separator"></span>
+      <div class="lifeChanges">
+        <span>{{getLifeBefore(entry)}}</span>
+        <span class="ARROW_RIGHT" *ngIf="entry.type != historyType.POISON"></span>
+        <span>{{getLifeAfter(entry)}}</span>
+      </div>
+      <span class="separator"></span>
+      <div class="operationResult">
+        <span class="{{entry.type}}"></span>
+        <span>{{getOperator(entry.data)}}</span>
+        <span>{{getValue(entry.data)}}</span>
+      </div>
+      <span class="separator"></span>
+      <span class="columnBig">{{getTime(entry.date)}}</span>
+    </div>
+
   </li>
 </ul>
+

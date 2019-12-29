@@ -20,18 +20,18 @@ export class HistoryTimer extends Timer {
     this.historyCallback = historyCallback;
   }
 
-  public addEntry(entry: HistoryEntry): void {
+  public addOperation(entry: HistoryEntry): void {
     if (!this.cacheEntries[entry.type]) {
       this.cacheEntries[entry.type] = entry;
     }
-    else this.updateEntry(entry);
+    else this.updateOperation(entry);
     this.restart();
   };
 
-  private updateEntry(entry: HistoryEntry): void {
+  private updateOperation(entry: HistoryEntry): void {
     if (this.cacheEntries[entry.type].type == entry.type) {
       this.cacheEntries[entry.type].date = entry.date;
-      this.cacheEntries[entry.type].data += entry.data;
+      this.cacheEntries[entry.type].data.value += entry.data['value'];
       if (this.cacheEntries[entry.type].data == 0) this.cacheEntries = null;
     }
   }

@@ -2,9 +2,9 @@
  * Created by Topplegeist Team on 29/11/2019.
  */
 
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {AlertComponent} from '../../commons/alert.component';
-import {DiceRoll, HistoryService} from '../../service/history.service';
+import {DiceRoll, HistoryEntry, HistoryService, Operation} from '../../service/history.service';
 import {ButtonData} from '../../models/button-data.model';
 import {HistoryType} from '../../enums/history-type.enum';
 
@@ -50,12 +50,27 @@ export class HistoryComponent extends AlertComponent {
     return [button1, button2];
   }
 
-  public getOperator(value: number): string {
-    return value >= 0 ? '+' : '-';
+  public getOperator(operation: Operation): string {
+    return operation.value >= 0 ? '+' : '-';
   }
 
-  public getValue(value: number): number {
-    return Math.abs(value);
+  public getLifeBefore(operationEntry: HistoryEntry): number {
+    let operation: Operation = <Operation>operationEntry.data;
+    return operation.lifeBefore ? operation.lifeBefore : null;
+  }
+
+  public getLifeAfter(operationEntry: HistoryEntry): number {
+    let operation: Operation = <Operation>operationEntry.data;
+    if (!operation.lifeBefore) return null;
+
+    let lifeAfter: number = operationEntry.type == HistoryType.COMMANDER || operationEntry.type == HistoryType.PARTNER ?
+      (operation.lifeBefore - operation.value) :
+      (operation.lifeBefore + operation.value);
+    return lifeAfter;
+  }
+
+  public getValue(operation: Operation): number {
+    return Math.abs(operation.value);
   }
 
   public getTime(date: Date): string {

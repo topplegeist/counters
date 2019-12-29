@@ -6,6 +6,12 @@ import {Injectable} from '@angular/core';
 import {HistoryType} from '../enums/history-type.enum';
 import {HistoryTimer} from '../timers/history-timer';
 
+export type Operation = {
+  playerIndex: number,
+  lifeBefore: number,
+  value: number
+}
+
 export type DiceRoll = {
   p1value: number,
   p2value: number,
@@ -15,28 +21,27 @@ export type DiceRoll = {
 export type HistoryEntry = {
   type: HistoryType,
   date: Date,
-  playerIndex: number,
-  data: number | DiceRoll
+  data: DiceRoll | Operation
 }
 
 @Injectable()
 export class HistoryService {
   public history: HistoryEntry[] = [];
   private timers: HistoryTimer[] = [];
+  test: DiceRoll;
 
   constructor() {
     this.timers.push(new HistoryTimer(this.historyCallback));
     this.timers.push(new HistoryTimer(this.historyCallback));
   }
 
-  public addOperatorEntry(type: HistoryType, playerIndex: number, value: number): void {
+  public addOperation(type: HistoryType, operation: Operation): void {
     let newEntry = {
       type: type,
       date: new Date(),
-      playerIndex: playerIndex,
-      data: value
+      data: operation
     };
-    this.timers[playerIndex].addEntry(newEntry);
+    this.timers[operation.playerIndex].addOperation(newEntry);
   }
 
   public addDiceRoll(diceRoll: DiceRoll): void {
@@ -44,7 +49,6 @@ export class HistoryService {
     let newEntry = {
       type: HistoryType.DICE,
       date: new Date(),
-      playerIndex: null,
       data: diceRoll
     };
     this.pushNewEntry(newEntry);
