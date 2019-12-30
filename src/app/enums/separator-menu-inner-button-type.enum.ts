@@ -5,5 +5,6 @@ export enum SeparatorMenuInnerButtonType {
   reset,
   dices,
   lifeRange,
+  history,
   settings
 }

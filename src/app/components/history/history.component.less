@@ -1,0 +1,149 @@
+@brand: #d3202a;
+
+ul {
+  max-height: 70vw;
+  margin-bottom: 2vw;
+  overflow: scroll;
+}
+
+li {
+  font-size: 5vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.columnSmall {
+  flex: 10;
+  align-self: center;
+}
+
+.columnMid {
+  flex: 25;
+  align-self: center;
+}
+
+.columnBig {
+  flex: 36;
+  align-self: center;
+}
+
+.textStart {
+  text-align: start;
+}
+
+.textEnd {
+  text-align: end;
+}
+
+.separator {
+  flex: 10;
+}
+
+li.listItem {
+  font-family: BelerenSmallCapsMono, serif;
+}
+
+li.listItem > * {
+  flex: 1;
+}
+
+div.entryRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 5vw;
+  height: 7vw;
+}
+
+div.entryRow > * {
+  height: 7vw;
+}
+
+
+div.entryStats:extend(div.entryRow) {
+  justify-content: space-between;
+}
+
+div.entryDice:extend(div.entryRow) {
+  justify-content: space-between;
+}
+
+div.lifeChanges:extend(.columnBig) {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+div.lifeChanges > * {
+  flex: 1;
+  text-align: center;
+}
+
+div.operationResult:extend(.columnMid) {
+  display: flex;
+  text-align: center;
+}
+
+div.operationResult > * {
+  flex: 1;
+}
+
+span.PLAYER {
+  color: @brand;
+  text-align: start;
+}
+
+span.PLAYER1:extend(span.PLAYER) {
+  color: @brand;
+}
+
+span.PLAYER2:extend(span.PLAYER) {
+  color: darken(@brand, 30%);
+}
+
+span.ICON {
+  background-color: black;
+  mask-size: auto 100%;
+  mask-repeat: no-repeat;
+  width: 5vw;
+  height: 5vw;
+  display: block;
+}
+
+span.ARROW_RIGHT:extend(span.ICON) {
+  mask-position: 50% 50%;
+  mask-image: url('../../../assets/icon-arrow-right.svg');
+}
+
+span.DICE:extend(span.ICON) {
+  mask-image: url('../../../assets/icon-dices.svg');
+}
+
+span.OPERATOR:extend(span.ICON) {
+  mask-position: 100% 50%;
+}
+
+span.LIFE:extend(span.OPERATOR) {
+  background-color: red;
+  mask-image: url('../../../assets/icon-life-range.svg');
+}
+
+span.COMMANDER:extend(span.OPERATOR) {
+  mask-image: url('../../../assets/icon-commander-1.svg');
+}
+
+span.PARTNER:extend(span.OPERATOR) {
+  mask-image: url('../../../assets/icon-commander-2.svg');
+}
+
+span.POISON:extend(span.OPERATOR) {
+  mask-image: url('../../../assets/icon-poison.svg');
+}
+
+span.MONARCH:extend(span.OPERATOR) {
+  mask-image: url('../../../assets/icon-monarch.svg');
+}
+
+span.CITY_BLESSING:extend(span.OPERATOR) {
+  mask-image: url('../../../assets/icon-city-blessing.svg');
+}

@@ -9,17 +9,25 @@ import {AlertComponent} from "../commons/alert.component";
   selector: '[alerts-host]',
 })
 export class AlertsDirective {
+  private viewContainerRefFilled: boolean = false;
+
   constructor(private viewContainerRef: ViewContainerRef,
               private componentFactoryResolver: ComponentFactoryResolver) {
   }
 
   public clear() {
     this.viewContainerRef.clear();
+    this.viewContainerRefFilled = false;
   }
 
   public add(alert: Type<AlertComponent>): AlertComponent {
     let componentFactory: ComponentFactory<AlertComponent> =
       this.componentFactoryResolver.resolveComponentFactory(alert);
+    this.viewContainerRefFilled = true;
     return this.viewContainerRef.createComponent(componentFactory).instance;
+  }
+
+  public isEmpty(): boolean {
+    return !this.viewContainerRefFilled;
   }
 }

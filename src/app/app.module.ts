@@ -30,6 +30,8 @@ import {SettingsAlertComponent} from "./components/settings-alert/settings-alert
 import {FormsModule} from "@angular/forms";
 import {HUDService} from "./service/hud.service";
 import {TopIconsComponent} from "./components/top-icons/top-icons.component";
+import {HistoryComponent} from './components/history/history.component';
+import {HistoryService} from './service/history.service';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -39,6 +41,7 @@ export class MyHammerConfig extends HammerGestureConfig {
 
 @NgModule({
   entryComponents: [
+    HistoryComponent,
     SettingsAlertComponent
   ],
   declarations: [
@@ -60,6 +63,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     DicesViewComponent,
     DiceFieldComponent,
     OptionalCountersComponent,
+    HistoryComponent,
     SettingsAlertComponent
   ],
   imports: [
@@ -71,6 +75,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     SeparatorMenuService,
     DiceService,
     AlertsService,
+    HistoryService,
     OptionalCountersService,
     HUDService,
     {

@@ -2,10 +2,12 @@
  * Created by Topplegeist Team on 13/04/2017.
  */
 
-import {Component, Input} from "@angular/core";
-import {OptionalCountersService} from "../../service/optional-counters.service";
-import {LifeService} from "../../service/life.service";
-import {HUDService} from "../../service/hud.service";
+import {Component, Input} from '@angular/core';
+import {OptionalCountersService} from '../../service/optional-counters.service';
+import {LifeService} from '../../service/life.service';
+import {HUDService} from '../../service/hud.service';
+import {HistoryService, Operation} from '../../service/history.service';
+import {HistoryType} from '../../enums/history-type.enum';
 
 @Component({
   selector: 'optional-counters',
@@ -26,6 +28,7 @@ export class OptionalCountersComponent {
 
   constructor(public optionalCountersService: OptionalCountersService,
               public lifeService: LifeService,
+              private historyService: HistoryService,
               public hudService: HUDService) {
     this.audio = new Audio('./assets/sounds/click.mp3');
   }
@@ -33,6 +36,7 @@ export class OptionalCountersComponent {
   public increasePoison() {
     if (this.optionalCountersService.poisonCounter[this.playerIndex] < 100) {
       this.audio.play();
+      this.addHistoryEntry(HistoryType.POISON, 1);
       this.optionalCountersService.poisonCounter[this.playerIndex]++;
     }
   }
@@ -40,6 +44,7 @@ export class OptionalCountersComponent {
   public increaseCommander() {
     if (this.optionalCountersService.commanderCounter[this.playerIndex] < 100) {
       this.audio.play();
+      this.addHistoryEntry(HistoryType.COMMANDER, 1);
       this.optionalCountersService.commanderCounter[this.playerIndex]++;
       this.lifeService.playersStats[this.playerIndex].life--;
     }
@@ -48,6 +53,7 @@ export class OptionalCountersComponent {
   public increasePartner() {
     if (this.optionalCountersService.partnerCounter[this.playerIndex] < 100) {
       this.audio.play();
+      this.addHistoryEntry(HistoryType.PARTNER, 1);
       this.optionalCountersService.partnerCounter[this.playerIndex]++;
       this.lifeService.playersStats[this.playerIndex].life--;
     }
@@ -56,6 +62,7 @@ export class OptionalCountersComponent {
   public decreasePoison() {
     if (this.optionalCountersService.poisonCounter[this.playerIndex] > 0) {
       this.audio.play();
+      this.addHistoryEntry(HistoryType.POISON, -1);
       this.optionalCountersService.poisonCounter[this.playerIndex]--;
     }
   }
@@ -63,6 +70,7 @@ export class OptionalCountersComponent {
   public decreaseCommander() {
     if (this.optionalCountersService.commanderCounter[this.playerIndex] > 0) {
       this.audio.play();
+      this.addHistoryEntry(HistoryType.COMMANDER, -1);
       this.optionalCountersService.commanderCounter[this.playerIndex]--;
       this.lifeService.playersStats[this.playerIndex].life++;
     }
@@ -71,6 +79,7 @@ export class OptionalCountersComponent {
   public decreasePartner() {
     if (this.optionalCountersService.partnerCounter[this.playerIndex] > 0) {
       this.audio.play();
+      this.addHistoryEntry(HistoryType.PARTNER, -1);
       this.optionalCountersService.partnerCounter[this.playerIndex]--;
       this.lifeService.playersStats[this.playerIndex].life++;
     }
@@ -113,5 +122,17 @@ export class OptionalCountersComponent {
   public poisonCloseTimerStop() {
     clearTimeout(this.poisonTimer);
     this.poisonTimer = null;
+  }
+
+  private addHistoryEntry(type: HistoryType, value: number) {
+    let lifeBefore: number = type != HistoryType.POISON ?
+      this.lifeService.playersStats[this.playerIndex].life :
+      null;
+    let operation: Operation = {
+      playerIndex: this.playerIndex,
+      lifeBefore: lifeBefore,
+      value: value
+    };
+    this.historyService.addOperation(type, operation);
   }
 }

@@ -8,6 +8,8 @@ import {SeparatorMenuInnerButtonType} from "../../enums/separator-menu-inner-but
 import {SeparatorMenuState} from "../../enums/separator-menu-state.enum";
 import {AlertsService} from "../../service/alerts.service";
 import {SettingsAlertComponent} from "../settings-alert/settings-alert.component";
+import {HistoryComponent} from '../history/history.component';
+import {HistoryService} from '../../service/history.service';
 
 @Component({
   selector: 'separator-inner-menu-button',
@@ -20,7 +22,9 @@ export class SeparatorInnerMenuButtonComponent implements OnInit {
 
   public classObj: any = {};
 
-  constructor(private separatorMenuService: SeparatorMenuService, private alertsService: AlertsService) {
+  constructor(private separatorMenuService: SeparatorMenuService,
+              private historyService: HistoryService,
+              private alertsService: AlertsService) {
   }
 
   ngOnInit(): void {
@@ -34,14 +38,19 @@ export class SeparatorInnerMenuButtonComponent implements OnInit {
       case SeparatorMenuInnerButtonType.settings:
         this.alertsService.show(SettingsAlertComponent);
         break;
+      case SeparatorMenuInnerButtonType.history:
+        this.alertsService.show(HistoryComponent);
+        break;
       case SeparatorMenuInnerButtonType.dices:
         this.separatorMenuService.activateDices();
         break;
       case SeparatorMenuInnerButtonType.lifeRange:
         this.separatorMenuService.state = SeparatorMenuState.LIFE_RANGE;
+        this.historyService.clear();
         break;
       case SeparatorMenuInnerButtonType.reset:
         this.separatorMenuService.resetCounters();
+        this.historyService.clear();
         break;
     }
   }
